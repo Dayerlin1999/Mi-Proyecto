@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia del Arte - Un Viaje Visual</title>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-color: #CD853F;
+            --light-color: #FAEBD7;
+            --text-color: #333;
+            --background-color: #f9f5f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: var(--accent-color);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            min-height: 60vh;
+        }
+        
+        .section {
+            display: none;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .active {
+            display: block;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.02);
+        }
+        
+        .interactive-element {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .hidden-content {
+            display: none;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background-color: var(--light-color);
+            border-radius: 4px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .period-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .period-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 1px solid #e0d6c8;
+        }
+        
+        .period-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .period-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .period-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--light-color);
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .period-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Historia del Arte - Un Viaje Visual</h1>
+        <p>Explorando los movimientos, técnicas y artistas que han definido la expresión visual a través del tiempo</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#" data-section="introduccion" class="active">Introducción</a></li>
+            <li><a href="#" data-section="periodos">Periodos Artísticos</a></li>
+            <li><a href="#" data-section="tecnicas">Técnicas</a></li>
+            <li><a href="#" data-section="artistas">Artistas Destacados</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="introduccion" class="section active">
+            <h2>Introducción a la Historia del Arte</h2>
+            <p>El arte es una expresión fundamental de la experiencia humana que ha evolucionado a lo largo de los siglos, reflejando cambios culturales, sociales y tecnológicos. Desde las pinturas rupestres hasta el arte digital, cada época ha desarrollado su propio lenguaje visual.</p>
+            
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Museo de arte">
+                <p>El arte nos conecta con diferentes épocas y culturas</p>
+            </div>
+            
+            <p>Estudiar historia del arte nos permite comprender no solo la evolución de las técnicas y estilos, sino también los valores, creencias y contextos históricos que dieron forma a estas expresiones creativas.</p>
+            
+            <div class="interactive-element">
+                <button id="toggle-info">Ver línea de tiempo interactiva</button>
+                <div id="hidden-info" class="hidden-content">
+                    <h3>Línea de Tiempo del Arte Occidental</h3>
+                    <div class="timeline">
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>Prehistórico (30,000 - 3,000 a.C.)</h4>
+                                <p>Arte rupestre, venus paleolíticas, megalitos</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>Antiguo (3,000 a.C. - 400 d.C.)</h4>
+                                <p>Arte egipcio, griego y romano</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>Medieval (400 - 1400)</h4>
+                                <p>Arte bizantino, románico y gótico</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>Renacimiento (1400 - 1600)</h4>
+                                <p>Humanismo, perspectiva, artistas como Da Vinci y Miguel Ángel</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="periodos" class="section">
+            <h2>Periodos Artísticos Principales</h2>
+            <p>La historia del arte se divide en periodos que comparten características estilísticas, técnicas y conceptuales. Cada periodo representa una respuesta a su contexto histórico y cultural.</p>
+            
+            <div class="period-grid">
+                <div class="period-card" data-period="renacimiento">
+                    <span class="period-icon">🎨</span>
+                    <h4>Renacimiento</h4>
+                    <p>Siglos XV-XVI: Recuperación del arte clásico, humanismo, perspectiva</p>
+                </div>
+                <div class="period-card" data-period="barroco">
+                    <span class="period-icon">🏛️</span>
+                    <h4>Barroco</h4>
+                    <p>Siglo XVII: Dramatismo, movimiento, contraste de luces y sombras</p>
+                </div>
+                <div class="period-card" data-period="impresionismo">
+                    <span class="period-icon">🌅</span>
+                    <h4>Impresionismo</h4>
+                    <p>Siglo XIX: Captura de la luz, pinceladas sueltas, escenas cotidianas</p>
+                </div>
+                <div class="period-card" data-period="cubismo">
+                    <span class="period-icon">🔷</span>
+                    <h4>Cubismo</h4>
+                    <p>Siglo XX: Descomposición de formas, múltiples perspectivas</p>
+                </div>
+                <div class="period-card" data-period="surrealismo">
+                    <span class="period-icon">🌌</span>
+                    <h4>Surrealismo</h4>
+                    <p>Siglo XX: Mundo onírico, inconsciente, yuxtaposición inusual</p>
+                </div>
+                <div class="period-card" data-period="contemporaneo">
+                    <span class="period-icon">🔄</span>
+                    <h4>Arte Contemporáneo</h4>
+                    <p>Siglo XX-XXI: Diversidad de medios, conceptos, crítica social</p>
+                </div>
+            </div>
+            
+            <div id="period-info" class="hidden-content">
+                <!-- La información del periodo se cargará aquí dinámicamente -->
+            </div>
+            
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Obras de arte en un museo">
+                <p>Comparación de estilos artísticos a través del tiempo</p>
+            </div>
+        </section>
+        
+        <section id="tecnicas" class="section">
+            <h2>Técnicas Artísticas</h2>
+            <p>Las técnicas artísticas han evolucionado considerablemente a lo largo de la historia, desde los pigmentos naturales hasta los medios digitales actuales.</p>
+            
+            <h3>Técnicas Tradicionales</h3>
+            <div class="period-grid">
+                <div class="period-card">
+                    <span class="period-icon">🖌️</span>
+                    <h4>Pintura al Óleo</h4>
+                    <p>Pigmentos mezclados con aceite, secado lento, ricos colores</p>
+                </div>
+                <div class="period-card">
+                    <span class="period-icon">💧</span>
+                    <h4>Acuarela</h4>
+                    <p>Pigmentos transparentes en agua, efectos luminosos y fluidos</p>
+                </div>
+                <div class="period-card">
+                    <span class="period-icon">✏️</span>
+                    <h4>Dibujo</h4>
+                    <p>Carboncillo, lápiz, tinta; base de todas las artes visuales</p>
+                </div>
+            </div>
+            
+            <h3>Técnicas Modernas</h3>
+            <div class="period-grid">
+                <div class="period-card">
+                    <span class="period-icon">📸</span>
+                    <h4>Fotografía</h4>
+                    <p>Captura de imágenes mediante luz, desde 1826</p>
+                </div>
+                <div class="period-card">
+                    <span class="period-icon">🎬</span>
+                    <h4>Arte Digital</h4>
+                    <p>Creación mediante herramientas digitales, software especializado</p>
+                </div>
+                <div class="period-card">
+                    <span class="period-icon">🔲</span>
+                    <h4>Instalación</h4>
+                    <p>Obras tridimensionales que transforman un espacio</p>
+                </div>
+            </div>
+            
+            <div class="interactive-element">
+                <button id="toggle-technique">Ver demostración de técnica</button>
+                <div id="technique-demo" class="hidden-content">
+                    <h3>Demostración: Técnica de Claroscuro</h3>
+                    <p>El claroscuro es una técnica que utiliza contrastes fuertes entre luz y sombra para crear volumen y dramatismo.</p>
+                    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 1rem 0;">
+                        <div style="text-align: center;">
+                            <div style="width: 100px; height: 100px; background: linear-gradient(to right, #000, #333, #666, #999, #ccc, #fff); border-radius: 50%;"></div>
+                            <p>Escala de valores</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="width: 100px; height: 100px; background: radial-gradient(circle at 30% 30%, #fff, #666, #000); border-radius: 50%;"></div>
+                            <p>Volumen esférico</p>
+                        </div>
+                    </div>
+                    <p>Artistas como Caravaggio y Rembrandt dominaron esta técnica para crear obras dramáticamente iluminadas.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="artistas" class="section">
+            <h2>Artistas Destacados</h2>
+            <p>A lo largo de la historia, numerosos artistas han revolucionado el mundo del arte con sus innovaciones técnicas y conceptuales.</p>
+            
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Estudio de artista">
+                <p>El proceso creativo en el estudio de un artista</p>
+            </div>
+            
+            <div class="period-grid">
+                <div class="period-card">
+                    <span class="period-icon">👨‍🎨</span>
+                    <h4>Leonardo da Vinci</h4>
+                    <p>Renacimiento italiano: "La Gioconda", "La Última Cena"</p>
+                </div>
+                <div class="period-card">
+                    <span class="period-icon">👩‍🎨</span>
+                    <h4>Frida Kahlo</h4>
+                    <p>Surrealismo mexicano: Autorretratos, simbolismo personal</p>
+                </div>
+                <div class="period-card">
+                    <span class="period-icon">👨‍🎨</span>
+                    <h4>Pablo Picasso</h4>
+                    <p>Cubismo: "Guernica", innovación constante</p>
+                </div>
+                <div class="period-card">
+                    <span class="period-icon">👩‍🎨</span>
+                    <h4>Georgia O'Keeffe</h4>
+                    <p>Modernismo americano: Flores ampliadas, paisajes del suroeste</p>
+                </div>
+            </div>
+            
+            <h3>Legado e Influencia</h3>
+            <p>Estos artistas no solo crearon obras maestras, sino que también expandieron los límites de lo que se consideraba arte, influyendo en generaciones posteriores y transformando la manera en que percibimos el mundo.</p>
+            
+            <div class="interactive-element">
+                <button id="toggle-quote">Cita inspiradora</button>
+                <div id="artist-quote" class="hidden-content">
+                    <blockquote style="font-style: italic; margin: 1rem 0; padding-left: 1rem; border-left: 3px solid var(--accent-color);">
+                        "El arte lava del alma el polvo de la vida cotidiana."
+                    </blockquote>
+                    <p style="text-align: right;">- Pablo Picasso</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Historia del Arte - Un Viaje Visual</p>
+    </footer>
+
+    <script>
+        // Navegación SPA simulada
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a');
+            const sections = document.querySelectorAll('.section');
+            
+            // Configurar eventos de clic para navegación
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Actualizar navegación activa
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Obtener la sección objetivo
+                    const targetSection = this.getAttribute('data-section');
+                    
+                    // Ocultar todas las secciones
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    // Mostrar la sección objetivo
+                    document.getElementById(targetSection).classList.add('active');
+                });
+            });
+            
+            // Interacción de hipermedia: mostrar/ocultar información adicional
+            const toggleButton = document.getElementById('toggle-info');
+            if (toggleButton) {
+                const hiddenContent = document.getElementById('hidden-info');
+                
+                toggleButton.addEventListener('click', function() {
+                    if (hiddenContent.style.display === 'block') {
+                        hiddenContent.style.display = 'none';
+                        toggleButton.textContent = 'Ver línea de tiempo interactiva';
+                    } else {
+                        hiddenContent.style.display = 'block';
+                        toggleButton.textContent = 'Ocultar línea de tiempo';
+                    }
+                });
+            }
+            
+            // Interacción para técnicas
+            const toggleTechnique = document.getElementById('toggle-technique');
+            if (toggleTechnique) {
+                const techniqueDemo = document.getElementById('technique-demo');
+                
+                toggleTechnique.addEventListener('click', function() {
+                    if (techniqueDemo.style.display === 'block') {
+                        techniqueDemo.style.display = 'none';
+                        toggleTechnique.textContent = 'Ver demostración de técnica';
+                    } else {
+                        techniqueDemo.style.display = 'block';
+                        toggleTechnique.textContent = 'Ocultar demostración';
+                    }
+                });
+            }
+            
+            // Interacción para citas
+            const toggleQuote = document.getElementById('toggle-quote');
+            if (toggleQuote) {
+                const artistQuote = document.getElementById('artist-quote');
+                
+                toggleQuote.addEventListener('click', function() {
+                    if (artistQuote.style.display === 'block') {
+                        artistQuote.style.display = 'none';
+                        toggleQuote.textContent = 'Cita inspiradora';
+                    } else {
+                        artistQuote.style.display = 'block';
+                        toggleQuote.textContent = 'Ocultar cita';
+                    }
+                });
+            }
+            
+            // Interacción para periodos artísticos
+            const periodCards = document.querySelectorAll('.period-card[data-period]');
+            const periodInfo = document.getElementById('period-info');
+            
+            if (periodCards.length > 0 && periodInfo) {
+                const periodDetails = {
+                    'renacimiento': {
+                        title: 'Renacimiento (Siglos XV-XVI)',
+                        content: '<p>El Renacimiento marcó un "renacer" del interés por el arte y la cultura clásica. Caracterizado por:</p><ul><li>Humanismo: enfoque en la experiencia humana</li><li>Perspectiva lineal: creación de profundidad realista</li><li>Estudio de la anatomía: representación precisa del cuerpo humano</li><li>Artistas destacados: Leonardo da Vinci, Miguel Ángel, Rafael</li></ul>'
+                    },
+                    'barroco': {
+                        title: 'Barroco (Siglo XVII)',
+                        content: '<p>El Barroco se caracteriza por el dramatismo, el movimiento y el emocionalismo:</p><ul><li>Claroscuro: contraste extremo entre luz y sombra</li><li>Composiciones dinámicas y diagonales</li><li>Temas religiosos y mitológicos</li><li>Artistas destacados: Caravaggio, Rembrandt, Bernini</li></ul>'
+                    },
+                    'impresionismo': {
+                        title: 'Impresionismo (Siglo XIX)',
+                        content: '<p>El Impresionismo revolucionó el arte al capturar impresiones momentáneas:</p><ul><li>Pinceladas visibles y sueltas</li><li>Énfasis en la luz y sus efectos</li><li>Temas de la vida cotidiana y paisajes</li><li>Pintura al aire libre (plein air)</li><li>Artistas destacados: Monet, Renoir, Degas</li></ul>'
+                    },
+                    'cubismo': {
+                        title: 'Cubismo (Siglo XX)',
+                        content: '<p>El Cubismo desafió la representación tradicional del espacio:</p><ul><li>Descomposición de formas en planos geométricos</li><li>Múltiples puntos de vista simultáneos</li><li>Colores terrosos y neutros</li><li>Artistas destacados: Picasso, Braque, Gris</li></ul>'
+                    }
+                };
+                
+                periodCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        const period = this.getAttribute('data-period');
+                        if (periodDetails[period]) {
+                            periodInfo.innerHTML = `
+                                <h3>${periodDetails[period].title}</h3>
+                                ${periodDetails[period].content}
+                            `;
+                            periodInfo.style.display = 'block';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
