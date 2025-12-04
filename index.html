@@ -3,316 +3,517 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia del Arte</title>
+    <title>Historia del Arte - Un Viaje Visual</title>
     <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-color: #CD853F;
+            --light-color: #FAEBD7;
+            --text-color: #333;
+            --background-color: #f9f5f0;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Georgia, serif;
+            font-family: 'Georgia', serif;
         }
         
         body {
-            background-color: #f9f5f0;
-            padding: 20px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* ANIMACIÓN CSS que pidió el profesor */
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* TRANSICIÓN CSS que pidió el profesor */
+        .boton-crece {
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .boton-crece:hover {
+            transform: scale(1.1);
         }
         
         header {
-            background: #8B4513;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 1.5rem;
             text-align: center;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            animation: aparecer 1s ease-out;
         }
         
-        .seccion {
-            background: white;
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: var(--accent-color);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            min-height: 60vh;
+        }
+        
+        .section {
+            display: none;
+            background-color: white;
             padding: 2rem;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            animation: aparecer 0.5s ease-in;
+        }
+        
+        .active {
+            display: block;
         }
         
         h2 {
-            color: #8B4513;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--light-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+        }
+        
+        p {
             margin-bottom: 1rem;
         }
         
-        .multimedia-box {
-            background: #FAEBD7;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
+        .image-container {
             text-align: center;
-            border-left: 5px solid #D2691E;
+            margin: 2rem 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.02);
+        }
+        
+        .interactive-element {
+            margin: 2rem 0;
+            text-align: center;
         }
         
         button {
-            background: #8B4513;
+            background-color: var(--primary-color);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
             cursor: pointer;
-            margin: 5px;
-            font-size: 16px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            margin: 0.5rem;
         }
         
         button:hover {
-            background: #A0522D;
+            background-color: var(--secondary-color);
+        }
+        
+        .hidden-content {
+            display: none;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background-color: var(--light-color);
+            border-radius: 4px;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .period-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .period-card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: 1px solid #e0d6c8;
+        }
+        
+        .period-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .period-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .period-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        /* NUEVO: Estilos para multimedia */
+        .multimedia-section {
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .media-controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
         }
         
         audio, video {
             width: 100%;
             max-width: 600px;
-            margin: 15px auto;
             display: block;
+            margin: 1rem auto;
             border-radius: 8px;
         }
         
-        .controles {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 15px 0;
-        }
-        
-        .animacion-box {
-            width: 200px;
-            height: 200px;
-            background: #D2691E;
-            margin: 20px auto;
+        .color-change-box {
+            padding: 2rem;
+            margin: 2rem 0;
+            background: var(--light-color);
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
+            text-align: center;
+            transition: all 2s ease;
         }
         
-        .texto-dinamico {
-            padding: 20px;
-            background: #DEB887;
-            border-radius: 8px;
-            margin: 20px auto;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            max-width: 600px;
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .period-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .media-controls {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Historia del Arte - Proyecto Multimedia</h1>
-        <p>Implementación de audio, video y animaciones</p>
+        <h1>Historia del Arte - Un Viaje Visual</h1>
+        <p>Explorando los movimientos, técnicas y artistas que han definido la expresión visual</p>
     </header>
     
+    <nav>
+        <ul>
+            <li><a href="#" data-section="introduccion" class="active">Introducción</a></li>
+            <li><a href="#" data-section="periodos">Periodos</a></li>
+            <li><a href="#" data-section="tecnicas">Técnicas</a></li>
+            <li><a href="#" data-section="artistas">Artistas</a></li>
+            <li><a href="#" data-section="multimedia">Multimedia</a></li>
+            <li><a href="#" data-section="contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    
     <main>
-        <section class="seccion">
-            <h2>🎵 Control de Audio y Video</h2>
+        <section id="introduccion" class="section active">
+            <h2>Introducción a la Historia del Arte</h2>
+            <p>El arte es una expresión fundamental de la experiencia humana que ha evolucionado a lo largo de los siglos.</p>
             
-            <div class="multimedia-box">
-                <h3>Audio: Música Clásica</h3>
-                <p>Piano clásico para ambiente artístico</p>
-                
-                <div style="background: #FFF8DC; padding: 15px; border-radius: 8px; margin: 15px 0;">
-                    <p><strong>Audio disponible:</strong> Piano clásico</p>
-                    <p><em>Haz clic en "Reproducir" para escuchar</em></p>
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Museo de arte">
+                <p>El arte nos conecta con diferentes épocas y culturas</p>
+            </div>
+        </section>
+        
+        <section id="periodos" class="section">
+            <h2>Periodos Artísticos Principales</h2>
+            <div class="period-grid">
+                <div class="period-card">
+                    <span class="period-icon">🎨</span>
+                    <h4>Renacimiento</h4>
+                    <p>Siglos XV-XVI</p>
                 </div>
+                <div class="period-card">
+                    <span class="period-icon">🏛️</span>
+                    <h4>Barroco</h4>
+                    <p>Siglo XVII</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="tecnicas" class="section">
+            <h2>Técnicas Artísticas</h2>
+            <div class="period-grid">
+                <div class="period-card">
+                    <span class="period-icon">🖌️</span>
+                    <h4>Pintura al Óleo</h4>
+                    <p>Técnica tradicional</p>
+                </div>
+                <div class="period-card">
+                    <span class="period-icon">💧</span>
+                    <h4>Acuarela</h4>
+                    <p>Transparencia y luz</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="artistas" class="section">
+            <h2>Artistas Destacados</h2>
+            <div class="period-grid">
+                <div class="period-card">
+                    <span class="period-icon">👨‍🎨</span>
+                    <h4>Leonardo da Vinci</h4>
+                    <p>Renacimiento italiano</p>
+                </div>
+                <div class="period-card">
+                    <span class="period-icon">👩‍🎨</span>
+                    <h4>Frida Kahlo</h4>
+                    <p>Surrealismo mexicano</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- NUEVA SECCIÓN: MULTIMEDIA (Lo que pidió el profesor) -->
+        <section id="multimedia" class="section">
+            <h2>🎵 Multimedia Interactiva</h2>
+            
+            <div class="multimedia-section">
+                <h3>Control de Audio/Video</h3>
+                <p>Implementación de elementos multimedia con controles JavaScript</p>
                 
-                <audio id="audioPlayer">
+                <h4>🎹 Audio: Música Clásica</h4>
+                <audio id="audioArte" controls>
                     <source src="https://assets.mixkit.co/music/preview/mixkit-classical-piano-118.mp3" type="audio/mpeg">
                 </audio>
                 
-                <div class="controles">
-                    <button onclick="playAudio()">▶️ Reproducir Audio</button>
-                    <button onclick="pauseAudio()">⏸️ Pausar Audio</button>
-                    <button onclick="stopAudio()">⏹️ Detener Audio</button>
+                <div class="media-controls">
+                    <button class="boton-crece" onclick="reproducirAudio()">▶️ play()</button>
+                    <button class="boton-crece" onclick="pausarAudio()">⏸️ pause()</button>
                 </div>
-            </div>
-            
-            <div class="multimedia-box">
-                <h3>Video: Proceso Artístico</h3>
-                <p>Técnicas de pintura en video</p>
                 
-                <video id="videoPlayer" controls style="background: black;">
+                <h4>🎥 Video: Proceso Artístico</h4>
+                <video id="videoArte" controls>
                     <source src="https://assets.mixkit.co/videos/preview/mixkit-artist-painting-a-canvas-2292-large.mp4" type="video/mp4">
                 </video>
                 
-                <div class="controles">
-                    <button onclick="playVideo()">▶️ Reproducir Video</button>
-                    <button onclick="pauseVideo()">⏸️ Pausar Video</button>
+                <div class="media-controls">
+                    <button class="boton-crece" onclick="reproducirVideo()">▶️ play() Video</button>
+                    <button class="boton-crece" onclick="pausarVideo()">⏸️ pause() Video</button>
+                </div>
+            </div>
+            
+            <div class="multimedia-section">
+                <h3>Animaciones Programadas</h3>
+                
+                <h4>Animación CSS (Keyframes)</h4>
+                <p>Esta caja tiene animación CSS al cargar la página:</p>
+                
+                <div style="width: 200px; height: 200px; background: var(--accent-color); margin: 1rem auto; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; animation: aparecer 2s infinite alternate;">
+                    Animación CSS
+                </div>
+                
+                <h4>Transiciones CSS</h4>
+                <p>Botones que crecen al pasar el ratón:</p>
+                
+                <div class="media-controls">
+                    <button class="boton-crece">Botón con hover</button>
+                    <button class="boton-crece">Crece al pasar</button>
+                </div>
+            </div>
+            
+            <div class="multimedia-section">
+                <h3>Manipulación Visual con JavaScript</h3>
+                
+                <h4>Cambio de color gradual</h4>
+                <p>Este texto cambia de color gradualmente:</p>
+                
+                <div class="color-change-box" id="cajaColor">
+                    <p style="font-size: 1.3rem; font-weight: bold;">El arte transforma con el tiempo</p>
+                </div>
+                
+                <div class="media-controls">
+                    <button class="boton-crece" onclick="iniciarCambioColor()">Iniciar cambio de color</button>
+                    <button class="boton-crece" onclick="detenerCambioColor()">Detener</button>
+                </div>
+                
+                <h4>Efecto con setTimeout</h4>
+                <p>Este elemento cambiará después de 2 segundos:</p>
+                
+                <div id="efectoTiempo" style="padding: 1.5rem; background: var(--secondary-color); color: white; border-radius: 8px; margin: 1rem 0; text-align: center;">
+                    Esperando 2 segundos...
                 </div>
             </div>
         </section>
         
-        <section class="seccion">
-            <h2>🎭 Animaciones CSS</h2>
-            
-            <div class="multimedia-box">
-                <h3>Animación Keyframes</h3>
-                <p>Caja con animación automática</p>
-                
-                <div class="animacion-box" id="boxAnimada">
-                    Animación Activa
-                </div>
-                
-                <div class="controles">
-                    <button onclick="iniciarAnimacion()">Iniciar Animación</button>
-                    <button onclick="detenerAnimacion()">Detener Animación</button>
-                </div>
-            </div>
-            
-            <div class="multimedia-box">
-                <h3>Transiciones CSS</h3>
-                <p>Efectos al pasar el ratón</p>
-                
-                <div class="controles">
-                    <button style="transition: all 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">Efecto 1</button>
-                    <button style="transition: all 0.3s;" onmouseover="this.style.backgroundColor='#CD853F'" onmouseout="this.style.backgroundColor='#8B4513'">Efecto 2</button>
-                    <button style="transition: all 0.3s;" onmouseover="this.style.borderRadius='20px'" onmouseout="this.style.borderRadius='5px'">Efecto 3</button>
-                </div>
-            </div>
-        </section>
-        
-        <section class="seccion">
-            <h2>🌈 Efectos con JavaScript</h2>
-            
-            <div class="multimedia-box">
-                <h3>Cambio Dinámico de Estilos</h3>
-                <p>Texto que modifica su apariencia</p>
-                
-                <div class="texto-dinamico" id="textoEfecto">
-                    El arte transforma la percepción
-                </div>
-                
-                <div class="controles">
-                    <button onclick="cambiarTexto()">Cambiar Color</button>
-                    <button onclick="animarTexto()">Animar Texto</button>
-                    <button onclick="resetTexto()">Reiniciar</button>
-                </div>
-            </div>
-            
-            <div class="multimedia-box">
-                <h3>Efecto con setTimeout</h3>
-                <p>Cambio programado después de tiempo</p>
-                
-                <div id="efectoTiempo" style="padding: 20px; background: #8B4513; color: white; border-radius: 8px; text-align: center; margin: 15px auto; max-width: 500px;">
-                    Espera 2 segundos...
-                </div>
-            </div>
+        <section id="contacto" class="section">
+            <h2>Contacto</h2>
+            <p>Formulario de contacto con validación.</p>
         </section>
     </main>
     
-    <footer style="background: #8B4513; color: white; text-align: center; padding: 1.5rem; border-radius: 10px; margin-top: 20px;">
-        <p>Proyecto de Historia del Arte - Multimedia Interactiva</p>
+    <footer>
+        <p>Historia del Arte - Un Viaje Visual</p>
     </footer>
 
     <script>
-        // Audio
-        const audio = document.getElementById('audioPlayer');
-        
-        function playAudio() {
-            audio.play();
-            alert('🎵 Audio reproduciéndose');
-        }
-        
-        function pauseAudio() {
-            audio.pause();
-            alert('⏸️ Audio pausado');
-        }
-        
-        function stopAudio() {
-            audio.pause();
-            audio.currentTime = 0;
-            alert('⏹️ Audio detenido');
-        }
-        
-        // Video
-        const video = document.getElementById('videoPlayer');
-        
-        function playVideo() {
-            video.play();
-            alert('🎥 Video reproduciéndose');
-        }
-        
-        function pauseVideo() {
-            video.pause();
-            alert('⏸️ Video pausado');
-        }
-        
-        // Animación
-        const boxAnimada = document.getElementById('boxAnimada');
-        let animacionActiva = false;
-        
-        function iniciarAnimacion() {
-            animacionActiva = true;
-            boxAnimada.style.animation = 'pulse 1s infinite';
-            boxAnimada.innerHTML = 'Animando...';
-            alert('🎭 Animación iniciada');
-        }
-        
-        function detenerAnimacion() {
-            animacionActiva = false;
-            boxAnimada.style.animation = 'none';
-            boxAnimada.innerHTML = 'Animación Detenida';
-            alert('⏹️ Animación detenida');
-        }
-        
-        // Efectos de texto
-        const textoEfecto = document.getElementById('textoEfecto');
-        
-        function cambiarTexto() {
-            const colores = ['#8B4513', '#A0522D', '#D2691E', '#CD853F', '#DEB887'];
-            const color = colores[Math.floor(Math.random() * colores.length)];
-            textoEfecto.style.backgroundColor = color;
-            textoEfecto.style.color = color === '#DEB887' ? '#333' : 'white';
-            textoEfecto.style.transform = 'rotate(' + (Math.random() * 10 - 5) + 'deg)';
-            textoEfecto.style.transition = 'all 0.5s';
-        }
-        
-        function animarTexto() {
-            textoEfecto.style.fontSize = '24px';
-            textoEfecto.style.fontWeight = 'bold';
-            textoEfecto.style.letterSpacing = '2px';
-            textoEfecto.style.transition = 'all 0.5s';
-        }
-        
-        function resetTexto() {
-            textoEfecto.style.backgroundColor = '#DEB887';
-            textoEfecto.style.color = '#333';
-            textoEfecto.style.transform = 'none';
-            textoEfecto.style.fontSize = '18px';
-            textoEfecto.style.fontWeight = 'normal';
-            textoEfecto.style.letterSpacing = 'normal';
-        }
-        
-        // Efecto con setTimeout
-        setTimeout(function() {
-            const efecto = document.getElementById('efectoTiempo');
-            efecto.innerHTML = '✅ ¡Efecto completado después de 2 segundos!';
-            efecto.style.backgroundColor = '#D2691E';
-            efecto.style.transform = 'scale(1.05)';
-            efecto.style.transition = 'all 0.5s';
-        }, 2000);
-        
-        // Animación CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes pulse {
-                0% { transform: scale(1); opacity: 1; }
-                50% { transform: scale(1.1); opacity: 0.8; }
-                100% { transform: scale(1); opacity: 1; }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Iniciar animación automáticamente después de 1 segundo
-        setTimeout(iniciarAnimacion, 1000);
+        // Navegación SPA
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a');
+            const sections = document.querySelectorAll('.section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const targetSection = this.getAttribute('data-section');
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    
+                    document.getElementById(targetSection).classList.add('active');
+                });
+            });
+            
+            // =========== LO QUE PIDIÓ EL PROFESOR ===========
+            
+            // 1. Control de Audio/Video
+            const audio = document.getElementById('audioArte');
+            const video = document.getElementById('videoArte');
+            
+            window.reproducirAudio = function() {
+                audio.play();
+            };
+            
+            window.pausarAudio = function() {
+                audio.pause();
+            };
+            
+            window.reproducirVideo = function() {
+                video.play();
+            };
+            
+            window.pausarVideo = function() {
+                video.pause();
+            };
+            
+            // 2. Animación de cambio de color
+            let intervaloColor;
+            const cajaColor = document.getElementById('cajaColor');
+            
+            window.iniciarCambioColor = function() {
+                const colores = ['#8B4513', '#D2691E', '#CD853F', '#A0522D', '#DEB887'];
+                let indice = 0;
+                
+                intervaloColor = setInterval(function() {
+                    cajaColor.style.backgroundColor = colores[indice];
+                    cajaColor.style.color = indice > 3 ? '#333' : 'white';
+                    indice = (indice + 1) % colores.length;
+                }, 1000);
+            };
+            
+            window.detenerCambioColor = function() {
+                clearInterval(intervaloColor);
+            };
+            
+            // Iniciar cambio de color automáticamente
+            iniciarCambioColor();
+            
+            // 3. Efecto con setTimeout
+            setTimeout(function() {
+                const efecto = document.getElementById('efectoTiempo');
+                efecto.innerHTML = '✅ ¡Efecto completado después de 2 segundos!';
+                efecto.style.backgroundColor = '#CD853F';
+                efecto.style.transform = 'scale(1.05)';
+                efecto.style.transition = 'all 0.5s';
+            }, 2000);
+            
+            // 4. Animación CSS adicional
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes cambiarColor {
+                    0% { color: #8B4513; }
+                    25% { color: #D2691E; }
+                    50% { color: #CD853F; }
+                    75% { color: #A0522D; }
+                    100% { color: #8B4513; }
+                }
+                
+                .color-change-box p {
+                    animation: cambiarColor 4s infinite;
+                }
+            `;
+            document.head.appendChild(style);
+        });
     </script>
 </body>
 </html>
