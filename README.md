@@ -1,25 +1,15 @@
-# 🌐 Proyecto Web - Historia del Arte
+# Historia del Arte - Un Viaje Visual
 
-Sitio web sobre historia del arte con navegación entre secciones.
+Sitio web sobre historia del arte con multimedia interactiva.
 
-## ✨ Características
+## Nuevas Funciones
+- Audio y video con controles
+- Animaciones CSS al cargar
+- Canvas para dibujar
+- Efectos visuales con scroll
 
-- 🔄 Navegación entre secciones sin recargar
-- 📱 Diseño adaptable a móviles
-- 🎨 Información sobre arte y artistas
+## Tecnologías
+- HTML5, CSS3, JavaScript
 
-## 💻 Tecnologías
-
-- HTML
-- CSS  
-- JavaScript
-
-## 📑 Secciones
-
-- 📖 Introducción al arte
-- 🕰️ Periodos artísticos
-- 🖌️ Técnicas
-- 👨‍🎨 Artistas importantes
-
-Dayerlin Guerra
-27.0242.283
+**Estudiante:** Dayerlin Guerra  
+**Matrícula:** 27.0242.283
