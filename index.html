@@ -27,12 +27,30 @@
             line-height: 1.6;
         }
         
+        /* Animaciones CSS */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             padding: 1.5rem;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeInDown 1s ease-out;
         }
         
         h1 {
@@ -43,6 +61,7 @@
         nav {
             background-color: var(--secondary-color);
             padding: 1rem;
+            animation: fadeInDown 1.2s ease-out;
         }
         
         nav ul {
@@ -61,12 +80,13 @@
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 4px;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
         
         nav a:hover, nav a.active {
             background-color: var(--accent-color);
+            transform: translateY(-2px);
         }
         
         main {
@@ -74,6 +94,7 @@
             margin: 2rem auto;
             padding: 0 1.5rem;
             min-height: 60vh;
+            animation: fadeIn 0.8s ease-out 0.5s forwards;
         }
         
         .section {
@@ -83,16 +104,11 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
-            animation: fadeIn 0.5s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
         
         .active {
             display: block;
+            animation: fadeIn 0.5s ease-in;
         }
         
         h2 {
@@ -105,15 +121,6 @@
         h3 {
             color: var(--secondary-color);
             margin: 1.5rem 0 1rem;
-        }
-        
-        h4 {
-            color: var(--primary-color);
-            margin: 1.5rem 0 0.8rem;
-        }
-        
-        p {
-            margin-bottom: 1rem;
         }
         
         .image-container {
@@ -133,11 +140,6 @@
             transform: scale(1.02);
         }
         
-        .interactive-element {
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
         button {
             background-color: var(--primary-color);
             color: white;
@@ -146,33 +148,78 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 1rem;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
         }
         
         button:hover {
             background-color: var(--secondary-color);
+            transform: translateY(-2px);
         }
         
-        .hidden-content {
-            display: none;
-            margin-top: 1rem;
-            padding: 1.5rem;
+        /* Estilos multimedia */
+        .media-container {
             background-color: var(--light-color);
-            border-radius: 4px;
-            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            border-left: 5px solid var(--accent-color);
         }
         
-        footer {
-            background-color: var(--primary-color);
-            color: white;
+        .media-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        audio, video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: block;
+        }
+        
+        .scroll-animation {
+            padding: 2rem;
+            margin: 2rem 0;
+            background: var(--light-color);
+            border-radius: 10px;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
+            transition: all 1s ease;
+            opacity: 0.7;
+        }
+        
+        .color-changing-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: inline-block;
+            transition: color 2s ease;
+        }
+        
+        .canvas-container {
+            margin: 2rem auto;
+            text-align: center;
+        }
+        
+        canvas {
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 1rem auto;
         }
         
         .period-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
@@ -181,9 +228,9 @@
             background-color: var(--light-color);
             border-radius: 8px;
             padding: 1.5rem;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
             cursor: pointer;
-            border: 1px solid #e0d6c8;
+            text-align: center;
         }
         
         .period-card:hover {
@@ -191,172 +238,10 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        .period-card h4 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-        
         .period-icon {
             font-size: 2rem;
             margin-bottom: 0.5rem;
-            display: block;
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--accent-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 4px solid var(--primary-color);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
-        .left {
-            left: 0;
-        }
-        
-        .right {
-            left: 50%;
-        }
-        
-        .left::after {
-            right: -10px;
-        }
-        
-        .right::after {
-            left: -10px;
-        }
-        
-        .timeline-content {
-            padding: 20px;
-            background-color: var(--light-color);
-            border-radius: 6px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Nuevos estilos para el formulario */
-        .contact-form {
-            max-width: 600px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background-color: var(--light-color);
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--secondary-color);
-            font-weight: bold;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-        
-        .form-group input.valid {
-            border-color: #4CAF50;
-        }
-        
-        .form-group input.invalid {
-            border-color: #f44336;
-        }
-        
-        .feedback-message {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            min-height: 1.2rem;
-        }
-        
-        .feedback-success {
-            color: #4CAF50;
-        }
-        
-        .feedback-error {
-            color: #f44336;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: var(--secondary-color);
-        }
-        
-        .submit-btn:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
-        
-        .usability-content {
-            background-color: var(--light-color);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
-        }
-        
-        .usability-content h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-        
-        .usability-content h4 {
-            color: var(--secondary-color);
-            margin-top: 1.5rem;
+            animation: pulse 2s infinite;
         }
         
         @media (max-width: 768px) {
@@ -373,30 +258,9 @@
                 grid-template-columns: 1fr;
             }
             
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item::after {
-                left: 21px;
-            }
-            
-            .right {
-                left: 0;
-            }
-            
-            .contact-form {
-                padding: 1rem;
-            }
-            
-            .usability-content {
-                padding: 1rem;
+            .media-controls {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -404,204 +268,123 @@
 <body>
     <header>
         <h1>Historia del Arte - Un Viaje Visual</h1>
-        <p>Explorando los movimientos, técnicas y artistas que han definido la expresión visual a través del tiempo</p>
+        <p>Explorando los movimientos, técnicas y artistas</p>
     </header>
     
     <nav>
         <ul>
             <li><a href="#" data-section="introduccion" class="active">Introducción</a></li>
+            <li><a href="#" data-section="multimedia">Multimedia</a></li>
             <li><a href="#" data-section="periodos">Periodos</a></li>
-            <li><a href="#" data-section="tecnicas">Técnicas</a></li>
             <li><a href="#" data-section="artistas">Artistas</a></li>
-            <li><a href="#" data-section="contacto">Contacto</a></li>
-            <li><a href="#" data-section="analisis-usabilidad">Análisis</a></li>
         </ul>
     </nav>
     
     <main>
         <section id="introduccion" class="section active">
-            <h2>Introducción a la Historia del Arte</h2>
-            <p>El arte es una expresión fundamental de la experiencia humana que ha evolucionado a lo largo de los siglos, reflejando cambios culturales, sociales y tecnológicos. Desde las pinturas rupestres hasta el arte digital, cada época ha desarrollado su propio lenguaje visual.</p>
+            <h2>Introducción al Arte</h2>
+            <p>El arte es una expresión fundamental de la experiencia humana.</p>
             
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Museo de arte">
-                <p>El arte nos conecta con diferentes épocas y culturas</p>
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Museo de arte">
+                <p>El arte conecta épocas y culturas</p>
             </div>
             
-            <p>Estudiar historia del arte nos permite comprender no solo la evolución de las técnicas y estilos, sino también los valores, creencias y contextos históricos que dieron forma a estas expresiones creativas.</p>
+            <div class="scroll-animation" id="scrollAnimation">
+                <h3>🎭 Arte y Emoción</h3>
+                <p class="color-changing-text" id="colorText">El arte transmite emociones a través del tiempo</p>
+                <p>Desplázate para ver efectos visuales</p>
+            </div>
+        </section>
+        
+        <section id="multimedia" class="section">
+            <h2>🎵 Multimedia Interactiva</h2>
             
-            <div class="interactive-element">
-                <button id="toggle-info">Ver línea de tiempo interactiva</button>
-                <div id="hidden-info" class="hidden-content">
-                    <h3>Línea de Tiempo del Arte Occidental</h3>
-                    <div class="timeline">
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <h4>Prehistórico (30,000 - 3,000 a.C.)</h4>
-                                <p>Arte rupestre, venus paleolíticas, megalitos</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item right">
-                            <div class="timeline-content">
-                                <h4>Antiguo (3,000 a.C. - 400 d.C.)</h4>
-                                <p>Arte egipcio, griego y romano</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item left">
-                            <div class="timeline-content">
-                                <h4>Medieval (400 - 1400)</h4>
-                                <p>Arte bizantino, románico y gótico</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item right">
-                            <div class="timeline-content">
-                                <h4>Renacimiento (1400 - 1600)</h4>
-                                <p>Humanismo, perspectiva, artistas como Da Vinci y Miguel Ángel</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="media-container">
+                <h3>🎶 Audio: Música para Inspiración</h3>
+                <p>Controla la reproducción del audio:</p>
+                
+                <audio id="arteAudio" controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Tu navegador no soporta audio.
+                </audio>
+                
+                <div class="media-controls">
+                    <button id="playBtn">▶️ Reproducir</button>
+                    <button id="pauseBtn">⏸️ Pausar</button>
+                    <button id="stopBtn">⏹️ Detener</button>
+                    <button id="volUpBtn">🔊 Subir Volumen</button>
+                    <button id="volDownBtn">🔉 Bajar Volumen</button>
+                </div>
+            </div>
+            
+            <div class="media-container">
+                <h3>🎨 Video: Proceso Creativo</h3>
+                <p>Observa el proceso artístico:</p>
+                
+                <video id="arteVideo" controls poster="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-1.2.1&auto=format&fit=crop&w-600&q=80" width="100%">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                    Tu navegador no soporta video.
+                </video>
+                
+                <div class="media-controls">
+                    <button id="playVideoBtn">▶️ Reproducir Video</button>
+                    <button id="pauseVideoBtn">⏸️ Pausar Video</button>
+                </div>
+            </div>
+            
+            <div class="media-container">
+                <h3>🖌️ Canvas Interactivo</h3>
+                <p>Haz clic y arrastra para dibujar:</p>
+                
+                <canvas id="arteCanvas" width="500" height="300"></canvas>
+                
+                <div class="media-controls">
+                    <button id="clearCanvas">🗑️ Limpiar</button>
+                    <button id="changeColor">🎨 Cambiar Color</button>
                 </div>
             </div>
         </section>
         
         <section id="periodos" class="section">
-            <h2>Periodos Artísticos Principales</h2>
-            <p>La historia del arte se divide en periodos que comparten características estilísticas, técnicas y conceptuales. Cada periodo representa una respuesta a su contexto histórico y cultural.</p>
-            
-            <div class="period-grid">
-                <div class="period-card" data-period="renacimiento">
-                    <span class="period-icon">🎨</span>
-                    <h4>Renacimiento</h4>
-                    <p>Siglos XV-XVI: Recuperación del arte clásico, humanismo, perspectiva</p>
-                </div>
-                <div class="period-card" data-period="barroco">
-                    <span class="period-icon">🏛️</span>
-                    <h4>Barroco</h4>
-                    <p>Siglo XVII: Dramatismo, movimiento, contraste de luces y sombras</p>
-                </div>
-                <div class="period-card" data-period="impresionismo">
-                    <span class="period-icon">🌅</span>
-                    <h4>Impresionismo</h4>
-                    <p>Siglo XIX: Captura de la luz, pinceladas sueltas, escenas cotidianas</p>
-                </div>
-                <div class="period-card" data-period="cubismo">
-                    <span class="period-icon">🔷</span>
-                    <h4>Cubismo</h4>
-                    <p>Siglo XX: Descomposición de formas, múltiples perspectivas</p>
-                </div>
-            </div>
-            
-            <div id="period-info" class="hidden-content">
-                <!-- La información del periodo se cargará aquí dinámicamente -->
-            </div>
-        </section>
-        
-        <section id="tecnicas" class="section">
-            <h2>Técnicas Artísticas</h2>
-            <p>Las técnicas artísticas han evolucionado considerablemente a lo largo de la historia, desde los pigmentos naturales hasta los medios digitales actuales.</p>
-            
-            <h3>Técnicas Tradicionales</h3>
+            <h2>Periodos Artísticos</h2>
             <div class="period-grid">
                 <div class="period-card">
-                    <span class="period-icon">🖌️</span>
-                    <h4>Pintura al Óleo</h4>
-                    <p>Pigmentos mezclados con aceite, secado lento, ricos colores</p>
+                    <div class="period-icon">🎨</div>
+                    <h3>Renacimiento</h3>
+                    <p>Siglos XV-XVI</p>
                 </div>
                 <div class="period-card">
-                    <span class="period-icon">💧</span>
-                    <h4>Acuarela</h4>
-                    <p>Pigmentos transparentes en agua, efectos luminosos y fluidos</p>
+                    <div class="period-icon">🏛️</div>
+                    <h3>Barroco</h3>
+                    <p>Siglo XVII</p>
                 </div>
                 <div class="period-card">
-                    <span class="period-icon">✏️</span>
-                    <h4>Dibujo</h4>
-                    <p>Carboncillo, lápiz, tinta; base de todas las artes visuales</p>
+                    <div class="period-icon">🌅</div>
+                    <h3>Impresionismo</h3>
+                    <p>Siglo XIX</p>
                 </div>
             </div>
         </section>
         
         <section id="artistas" class="section">
             <h2>Artistas Destacados</h2>
-            <p>A lo largo de la historia, numerosos artistas han revolucionado el mundo del arte con sus innovaciones técnicas y conceptuales.</p>
-            
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Estudio de artista">
-                <p>El proceso creativo en el estudio de un artista</p>
-            </div>
-            
             <div class="period-grid">
                 <div class="period-card">
-                    <span class="period-icon">👨‍🎨</span>
-                    <h4>Leonardo da Vinci</h4>
-                    <p>Renacimiento italiano: "La Gioconda", "La Última Cena"</p>
+                    <div class="period-icon">👨‍🎨</div>
+                    <h3>Leonardo da Vinci</h3>
+                    <p>Renacimiento</p>
                 </div>
                 <div class="period-card">
-                    <span class="period-icon">👩‍🎨</span>
-                    <h4>Frida Kahlo</h4>
-                    <p>Surrealismo mexicano: Autorretratos, simbolismo personal</p>
+                    <div class="period-icon">👩‍🎨</div>
+                    <h3>Frida Kahlo</h3>
+                    <p>Surrealismo</p>
                 </div>
                 <div class="period-card">
-                    <span class="period-icon">👨‍🎨</span>
-                    <h4>Pablo Picasso</h4>
-                    <p>Cubismo: "Guernica", innovación constante</p>
+                    <div class="period-icon">👨‍🎨</div>
+                    <h3>Pablo Picasso</h3>
+                    <p>Cubismo</p>
                 </div>
-            </div>
-        </section>
-        
-        <!-- SECCIÓN: FORMULARIO DE CONTACTO -->
-        <section id="contacto" class="section">
-            <h2>Contacto</h2>
-            <p>¿Tienes preguntas sobre arte o sugerencias? ¡Contáctanos!</p>
-            
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Nombre completo *</label>
-                        <input type="text" id="name" name="name" placeholder="Tu nombre completo">
-                        <div class="feedback-message" id="nameFeedback"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Correo electrónico *</label>
-                        <input type="email" id="email" name="email" placeholder="tu@email.com">
-                        <div class="feedback-message" id="emailFeedback"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Asunto *</label>
-                        <input type="text" id="subject" name="subject" placeholder="Asunto de tu mensaje">
-                        <div class="feedback-message" id="subjectFeedback"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Mensaje *</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí..."></textarea>
-                        <div class="feedback-message" id="messageFeedback"></div>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn" id="submitBtn" disabled>Enviar Mensaje</button>
-                </form>
-            </div>
-        </section>
-        
-        <!-- SECCIÓN: ANÁLISIS DE USABILIDAD -->
-        <section id="analisis-usabilidad" class="section">
-            <h2>📊 Análisis de Usabilidad</h2>
-            
-            <div class="usability-content">
-                <h3>Principios de Cognición y Atención Aplicados</h3>
-                
-                <h4>🎨 Elecciones de Diseño Basadas en Principios Cognitivos</h4>
-                <p>El diseño de la interfaz implementa principios de cognición y atención para mejorar la experiencia del usuario. Los colores tierra (marrón, beige, naranja suave) fueron seleccionados por su alta legibilidad y contraste adecuado, reduciendo la fatiga visual durante lecturas prolongadas.</p>
-                
-                <p>La jerarquía visual se establece mediante tamaños de fuente diferenciados: títulos grandes (2.2rem) para secciones principales, subtítulos en colores contrastantes para agrupación lógica, y texto de cuerpo con interlineado de 1.6 para mejor escaneo.</p>
-                
-                <p>La atención del usuario se guía mediante transiciones suaves entre secciones (animación fadeIn) que mantienen el contexto visual sin cambios bruscos. Los elementos interactivos como botones y tarjetas emplean estados hover con transformaciones sutiles que proporcionan feedback inmediato, aprovechando el reconocimiento de patrones para una navegación intuitiva.</p>
-                
-                <h4>👁️ Implementación de Feedback y Validación</h4>
-                <p>El formulario de contacto aplica principios de reconocimiento de patrones mediante validación en tiempo real. Cada campo proporciona feedback inmediato usando colores semánticos: verde para entradas válidas y rojo para errores, permitiendo corrección inmediata.</p>
-                
-                <p>La función modular de validación separa la lógica de negocio de la interfaz, siguiendo principios de construcción de software mantenible. Los mensajes de error específicos y la deshabilitación progresiva del botón de envío crean una experiencia fluida que anticipa y previene errores del usuario.</p>
             </div>
         </section>
     </main>
@@ -611,211 +394,97 @@
     </footer>
 
     <script>
-        // Navegación SPA simulada
         document.addEventListener('DOMContentLoaded', function() {
+            // 1. CONTROL DE AUDIO
+            const audio = document.getElementById('arteAudio');
+            document.getElementById('playBtn').addEventListener('click', () => audio.play());
+            document.getElementById('pauseBtn').addEventListener('click', () => audio.pause());
+            document.getElementById('stopBtn').addEventListener('click', () => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+            document.getElementById('volUpBtn').addEventListener('click', () => {
+                if (audio.volume < 1) audio.volume += 0.1;
+            });
+            document.getElementById('volDownBtn').addEventListener('click', () => {
+                if (audio.volume > 0) audio.volume -= 0.1;
+            });
+            
+            // 2. CONTROL DE VIDEO
+            const video = document.getElementById('arteVideo');
+            document.getElementById('playVideoBtn').addEventListener('click', () => video.play());
+            document.getElementById('pauseVideoBtn').addEventListener('click', () => video.pause());
+            
+            // 3. CANVAS INTERACTIVO
+            const canvas = document.getElementById('arteCanvas');
+            const ctx = canvas.getContext('2d');
+            let drawing = false;
+            let currentColor = '#8B4513';
+            
+            canvas.addEventListener('mousedown', () => drawing = true);
+            canvas.addEventListener('mouseup', () => drawing = false);
+            canvas.addEventListener('mousemove', function(e) {
+                if (!drawing) return;
+                ctx.fillStyle = currentColor;
+                ctx.fillRect(e.offsetX - 5, e.offsetY - 5, 10, 10);
+            });
+            
+            document.getElementById('clearCanvas').addEventListener('click', () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            });
+            
+            document.getElementById('changeColor').addEventListener('click', () => {
+                const colors = ['#8B4513', '#D2691E', '#CD853F', '#A0522D'];
+                currentColor = colors[Math.floor(Math.random() * colors.length)];
+            });
+            
+            // 4. ANIMACIÓN DE COLOR (CSS/JS)
+            const colorText = document.getElementById('colorText');
+            const colors = ['#8B4513', '#D2691E', '#CD853F'];
+            let index = 0;
+            
+            setInterval(() => {
+                index = (index + 1) % colors.length;
+                colorText.style.color = colors[index];
+            }, 2000);
+            
+            // 5. ANIMACIÓN CON SCROLL
+            window.addEventListener('scroll', () => {
+                const element = document.getElementById('scrollAnimation');
+                if (window.scrollY > 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+            
+            // 6. NAVEGACIÓN
             const navLinks = document.querySelectorAll('nav a');
             const sections = document.querySelectorAll('.section');
             
-            // Configurar eventos de clic para navegación
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
-                    // Actualizar navegación activa
                     navLinks.forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Obtener la sección objetivo
-                    const targetSection = this.getAttribute('data-section');
-                    
-                    // Ocultar todas las secciones
+                    const target = this.getAttribute('data-section');
                     sections.forEach(section => {
                         section.classList.remove('active');
                     });
-                    
-                    // Mostrar la sección objetivo
-                    document.getElementById(targetSection).classList.add('active');
+                    document.getElementById(target).classList.add('active');
                 });
             });
             
-            // Interacción de hipermedia: mostrar/ocultar información adicional
-            const toggleButton = document.getElementById('toggle-info');
-            if (toggleButton) {
-                const hiddenContent = document.getElementById('hidden-info');
-                
-                toggleButton.addEventListener('click', function() {
-                    if (hiddenContent.style.display === 'block') {
-                        hiddenContent.style.display = 'none';
-                        toggleButton.textContent = 'Ver línea de tiempo interactiva';
-                    } else {
-                        hiddenContent.style.display = 'block';
-                        toggleButton.textContent = 'Ocultar línea de tiempo';
-                    }
+            // 7. ANIMACIÓN CON TIMEOUT (CSS)
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.period-card');
+                cards.forEach(card => {
+                    card.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        card.style.transform = 'scale(1)';
+                    }, 300);
                 });
-            }
-            
-            // =============================================
-            // IMPLEMENTACIÓN DE LA EVALUACIÓN Nro. 2
-            // =============================================
-            
-            // 2. FEEDBACK INTERACTIVO - Validación en tiempo real
-            const contactForm = document.getElementById('contactForm');
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const subjectInput = document.getElementById('subject');
-            const messageInput = document.getElementById('message');
-            const submitBtn = document.getElementById('submitBtn');
-            
-            // 3. FUNCIÓN DE UTILIDAD - Función modular para validación
-            function validateField(value, fieldType, minLength = 2) {
-                // Esta es nuestra función modular reutilizable
-                if (!value || value.trim().length < minLength) {
-                    return {
-                        isValid: false,
-                        message: `Este campo debe tener al menos ${minLength} caracteres`
-                    };
-                }
-                
-                // Validación específica por tipo de campo
-                switch(fieldType) {
-                    case 'email':
-                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (!emailRegex.test(value)) {
-                            return {
-                                isValid: false,
-                                message: 'Por favor ingresa un email válido'
-                            };
-                        }
-                        break;
-                        
-                    case 'name':
-                        if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value)) {
-                            return {
-                                isValid: false,
-                                message: 'El nombre solo puede contener letras y espacios'
-                            };
-                        }
-                        break;
-                }
-                
-                return {
-                    isValid: true,
-                    message: '✓ Campo válido'
-                };
-            }
-            
-            // Función para actualizar el estado del formulario
-            function updateFormState() {
-                const nameValidation = validateField(nameInput.value, 'name');
-                const emailValidation = validateField(emailInput.value, 'email');
-                const subjectValidation = validateField(subjectInput.value, 'text', 3);
-                const messageValidation = validateField(messageInput.value, 'text', 10);
-                
-                const isFormValid = nameValidation.isValid && 
-                                  emailValidation.isValid && 
-                                  subjectValidation.isValid && 
-                                  messageValidation.isValid;
-                
-                submitBtn.disabled = !isFormValid;
-                return isFormValid;
-            }
-            
-            // Eventos de input para validación en tiempo real
-            nameInput.addEventListener('input', function() {
-                const validation = validateField(this.value, 'name');
-                updateFeedback('nameFeedback', validation, this);
-                updateFormState();
-            });
-            
-            emailInput.addEventListener('input', function() {
-                const validation = validateField(this.value, 'email');
-                updateFeedback('emailFeedback', validation, this);
-                updateFormState();
-            });
-            
-            subjectInput.addEventListener('input', function() {
-                const validation = validateField(this.value, 'text', 3);
-                updateFeedback('subjectFeedback', validation, this);
-                updateFormState();
-            });
-            
-            messageInput.addEventListener('input', function() {
-                const validation = validateField(this.value, 'text', 10);
-                updateFeedback('messageFeedback', validation, this);
-                updateFormState();
-            });
-            
-            // Función auxiliar para actualizar el feedback visual
-            function updateFeedback(feedbackElementId, validation, inputElement) {
-                const feedbackElement = document.getElementById(feedbackElementId);
-                feedbackElement.textContent = validation.message;
-                feedbackElement.className = 'feedback-message ' + 
-                    (validation.isValid ? 'feedback-success' : 'feedback-error');
-                
-                // Actualizar clases del input
-                inputElement.classList.remove('valid', 'invalid');
-                inputElement.classList.add(validation.isValid ? 'valid' : 'invalid');
-            }
-            
-            // Manejar el envío del formulario
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                if (updateFormState()) {
-                    // Simular envío exitoso
-                    alert('¡Mensaje enviado con éxito! Gracias por tu contacto.');
-                    contactForm.reset();
-                    submitBtn.disabled = true;
-                    
-                    // Limpiar feedback visual
-                    document.querySelectorAll('.feedback-message').forEach(el => {
-                        el.textContent = '';
-                        el.className = 'feedback-message';
-                    });
-                    
-                    document.querySelectorAll('input, textarea').forEach(el => {
-                        el.classList.remove('valid', 'invalid');
-                    });
-                }
-            });
-            
-            // Interacción para periodos artísticos
-            const periodCards = document.querySelectorAll('.period-card[data-period]');
-            const periodInfo = document.getElementById('period-info');
-            
-            if (periodCards.length > 0 && periodInfo) {
-                const periodDetails = {
-                    'renacimiento': {
-                        title: 'Renacimiento (Siglos XV-XVI)',
-                        content: '<p>El Renacimiento marcó un "renacer" del interés por el arte y la cultura clásica. Caracterizado por:</p><ul><li>Humanismo: enfoque en la experiencia humana</li><li>Perspectiva lineal: creación de profundidad realista</li><li>Estudio de la anatomía: representación precisa del cuerpo humano</li><li>Artistas destacados: Leonardo da Vinci, Miguel Ángel, Rafael</li></ul>'
-                    },
-                    'barroco': {
-                        title: 'Barroco (Siglo XVII)',
-                        content: '<p>El Barroco se caracteriza por el dramatismo, el movimiento y el emocionalismo:</p><ul><li>Claroscuro: contraste extremo entre luz y sombra</li><li>Composiciones dinámicas y diagonales</li><li>Temas religiosos y mitológicos</li><li>Artistas destacados: Caravaggio, Rembrandt, Bernini</li></ul>'
-                    },
-                    'impresionismo': {
-                        title: 'Impresionismo (Siglo XIX)',
-                        content: '<p>El Impresionismo revolucionó el arte al capturar impresiones momentáneas:</p><ul><li>Pinceladas visibles y sueltas</li><li>Énfasis en la luz y sus efectos</li><li>Temas de la vida cotidiana y paisajes</li><li>Pintura al aire libre (plein air)</li><li>Artistas destacados: Monet, Renoir, Degas</li></ul>'
-                    },
-                    'cubismo': {
-                        title: 'Cubismo (Siglo XX)',
-                        content: '<p>El Cubismo desafió la representación tradicional del espacio:</p><ul><li>Descomposición de formas en planos geométricos</li><li>Múltiples puntos de vista simultáneos</li><li>Colores terrosos y neutros</li><li>Artistas destacados: Picasso, Braque, Gris</li></ul>'
-                    }
-                };
-                
-                periodCards.forEach(card => {
-                    card.addEventListener('click', function() {
-                        const period = this.getAttribute('data-period');
-                        if (periodDetails[period]) {
-                            periodInfo.innerHTML = `
-                                <h3>${periodDetails[period].title}</h3>
-                                ${periodDetails[period].content}
-                            `;
-                            periodInfo.style.display = 'block';
-                        }
-                    });
-                });
-            }
+            }, 1000);
         });
     </script>
 </body>
