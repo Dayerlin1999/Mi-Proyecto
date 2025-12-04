@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia del Arte</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Georgia, serif;
+        }
+        
+        body {
+            background-color: #f9f5f0;
+        }
+        
+        @keyframes entrada {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .boton-interactivo {
+            transition: all 0.3s;
+        }
+        
+        .boton-interactivo:hover {
+            transform: scale(1.1);
+            background-color: #A0522D;
+        }
+        
+        header {
+            background: #8B4513;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            animation: entrada 1s;
+        }
+        
+        nav {
+            background-color: #A0522D;
+            padding: 1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        nav a:hover, nav a.activo {
+            background-color: #CD853F;
+        }
+        
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .seccion {
+            display: none;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .activo {
+            display: block;
+        }
+        
+        h2 {
+            color: #8B4513;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #DEB887;
+            padding-bottom: 0.5rem;
+        }
+        
+        .contenedor {
+            background-color: #FFF8DC;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            border-left: 5px solid #D2691E;
+        }
+        
+        button {
+            background-color: #8B4513;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .controles {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        audio, video {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 8px;
+        }
+        
+        .caja-animada {
+            width: 200px;
+            height: 200px;
+            background-color: #D2691E;
+            margin: 2rem auto;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .texto-artistico {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 1rem;
+            text-align: center;
+            margin: 2rem 0;
+            background-color: #FFF8DC;
+            border-radius: 8px;
+            transition: all 1s;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .controles {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Historia del Arte</h1>
+        <p>Exploración multimedia</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#" data-seccion="multimedia" class="activo">Multimedia</a></li>
+            <li><a href="#" data-seccion="animaciones">Animaciones</a></li>
+            <li><a href="#" data-seccion="interactivo">Interactivo</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="multimedia" class="seccion activo">
+            <h2>Elementos Multimedia</h2>
+            
+            <div class="contenedor">
+                <h3>Música Clásica para Arte</h3>
+                <p>Pieza de piano clásico para ambientación artística</p>
+                
+                <audio id="musicaArte">
+                    <source src="https://assets.mixkit.co/music/preview/mixkit-classical-piano-118.mp3" type="audio/mpeg">
+                </audio>
+                
+                <div class="controles">
+                    <button class="boton-interactivo" onclick="iniciarMusica()">▶️ Reproducir</button>
+                    <button class="boton-interactivo" onclick="pausarMusica()">⏸️ Pausar</button>
+                    <button class="boton-interactivo" onclick="reiniciarMusica()">⏹️ Reiniciar</button>
+                </div>
+            </div>
+            
+            <div class="contenedor">
+                <h3>Video Artístico</h3>
+                <p>Técnicas de pintura en video</p>
+                
+                <video id="videoArte" controls>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-artist-painting-a-canvas-2292-large.mp4" type="video/mp4">
+                </video>
+                
+                <div class="controles">
+                    <button class="boton-interactivo" onclick="iniciarVideo()">▶️ Reproducir Video</button>
+                    <button class="boton-interactivo" onclick="pausarVideo()">⏸️ Pausar Video</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="animaciones" class="seccion">
+            <h2>Animaciones Visuales</h2>
+            
+            <div class="contenedor">
+                <h3>Animación con Keyframes</h3>
+                <p>Efecto visual con CSS</p>
+                
+                <div class="caja-animada" id="animacionCaja">
+                    Efecto Visual
+                </div>
+                
+                <button class="boton-interactivo" onclick="alternarAnimacion()">Alternar Animación</button>
+            </div>
+            
+            <div class="contenedor">
+                <h3>Transiciones CSS</h3>
+                <p>Efectos al interactuar</p>
+                
+                <div class="controles">
+                    <button class="boton-interactivo">Efecto 1</button>
+                    <button class="boton-interactivo">Efecto 2</button>
+                    <button class="boton-interactivo">Efecto 3</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="interactivo" class="seccion">
+            <h2>Interactividad</h2>
+            
+            <div class="contenedor">
+                <h3>Modificación Visual</h3>
+                <p>Cambio dinámico de estilos</p>
+                
+                <div class="texto-artistico" id="textoModificable">
+                    La belleza del arte
+                </div>
+                
+                <div class="controles">
+                    <button class="boton-interactivo" onclick="cambiarEstilo()">Cambiar Estilo</button>
+                    <button class="boton-interactivo" onclick="restaurarEstilo()">Restaurar</button>
+                </div>
+            </div>
+            
+            <div class="contenedor">
+                <h3>Efecto Programado</h3>
+                <p>Cambio automático después de tiempo</p>
+                
+                <div id="efectoAutomatico" style="padding: 1.5rem; background: #D2691E; color: white; border-radius: 8px; margin: 1rem auto; width: 80%; text-align: center;">
+                    Espera 3 segundos...
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer style="background: #8B4513; color: white; text-align: center; padding: 1.5rem; margin-top: 2rem;">
+        <p>Proyecto de Historia del Arte</p>
+    </footer>
+
+    <script>
+        const musica = document.getElementById('musicaArte');
+        const video = document.getElementById('videoArte');
+        
+        function iniciarMusica() {
+            musica.play();
+        }
+        
+        function pausarMusica() {
+            musica.pause();
+        }
+        
+        function reiniciarMusica() {
+            musica.pause();
+            musica.currentTime = 0;
+        }
+        
+        function iniciarVideo() {
+            video.play();
+        }
+        
+        function pausarVideo() {
+            video.pause();
+        }
+        
+        function cambiarEstilo() {
+            const texto = document.getElementById('textoModificable');
+            const coloresFondo = ['#8B4513', '#A0522D', '#D2691E', '#CD853F'];
+            const coloresTexto = ['#FFF8DC', '#FFE4C4', '#DEB887', '#F5DEB3'];
+            
+            const fondo = coloresFondo[Math.floor(Math.random() * coloresFondo.length)];
+            const textoColor = coloresTexto[Math.floor(Math.random() * coloresTexto.length)];
+            
+            texto.style.backgroundColor = fondo;
+            texto.style.color = textoColor;
+            texto.style.transform = 'scale(' + (0.9 + Math.random() * 0.3) + ')';
+            texto.style.borderRadius = (10 + Math.random() * 20) + 'px';
+        }
+        
+        function restaurarEstilo() {
+            const texto = document.getElementById('textoModificable');
+            texto.style.backgroundColor = '#FFF8DC';
+            texto.style.color = '#333';
+            texto.style.transform = 'scale(1)';
+            texto.style.borderRadius = '8px';
+        }
+        
+        function alternarAnimacion() {
+            const caja = document.getElementById('animacionCaja');
+            caja.style.transform = caja.style.transform === 'rotate(10deg)' ? 'rotate(-10deg)' : 'rotate(10deg)';
+            caja.style.transition = 'transform 0.5s';
+        }
+        
+        setTimeout(function() {
+            const efecto = document.getElementById('efectoAutomatico');
+            efecto.innerHTML = '¡Efecto completado!';
+            efecto.style.backgroundColor = '#CD853F';
+            efecto.style.transform = 'scale(1.1)';
+            efecto.style.transition = 'all 0.5s';
+        }, 3000);
+        
+        const enlacesNav = document.querySelectorAll('nav a');
+        const secciones = document.querySelectorAll('.seccion');
+        
+        enlacesNav.forEach(enlace => {
+            enlace.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                enlacesNav.forEach(e => e.classList.remove('activo'));
+                this.classList.add('activo');
+                
+                const objetivo = this.getAttribute('data-seccion');
+                secciones.forEach(seccion => {
+                    seccion.classList.remove('activo');
+                });
+                
+                document.getElementById(objetivo).classList.add('activo');
+            });
+        });
+        
+        setInterval(function() {
+            const caja = document.getElementById('animacionCaja');
+            if (!caja.style.transform || caja.style.transform === 'none') {
+                caja.style.transform = 'rotate(5deg)';
+                caja.style.transition = 'transform 0.5s';
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
