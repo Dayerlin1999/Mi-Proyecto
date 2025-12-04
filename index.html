@@ -14,20 +14,7 @@
         
         body {
             background-color: #f9f5f0;
-        }
-        
-        @keyframes entrada {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        
-        .boton-interactivo {
-            transition: all 0.3s;
-        }
-        
-        .boton-interactivo:hover {
-            transform: scale(1.1);
-            background-color: #A0522D;
+            padding: 20px;
         }
         
         header {
@@ -35,325 +22,297 @@
             color: white;
             padding: 1.5rem;
             text-align: center;
-            animation: entrada 1s;
-        }
-        
-        nav {
-            background-color: #A0522D;
-            padding: 1rem;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-        }
-        
-        nav a:hover, nav a.activo {
-            background-color: #CD853F;
-        }
-        
-        main {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
         
         .seccion {
-            display: none;
-            background-color: white;
+            background: white;
             padding: 2rem;
-            border-radius: 8px;
+            border-radius: 10px;
+            margin-bottom: 20px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .activo {
-            display: block;
         }
         
         h2 {
             color: #8B4513;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #DEB887;
-            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
         
-        .contenedor {
-            background-color: #FFF8DC;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
+        .multimedia-box {
+            background: #FAEBD7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
             text-align: center;
             border-left: 5px solid #D2691E;
         }
         
         button {
-            background-color: #8B4513;
+            background: #8B4513;
             color: white;
             border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
-            margin: 0.5rem;
-            font-size: 1rem;
+            margin: 5px;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background: #A0522D;
+        }
+        
+        audio, video {
+            width: 100%;
+            max-width: 600px;
+            margin: 15px auto;
+            display: block;
+            border-radius: 8px;
         }
         
         .controles {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
+            gap: 10px;
+            margin: 15px 0;
         }
         
-        audio, video {
-            width: 100%;
-            max-width: 600px;
-            display: block;
-            margin: 1rem auto;
-            border-radius: 8px;
-        }
-        
-        .caja-animada {
+        .animacion-box {
             width: 200px;
             height: 200px;
-            background-color: #D2691E;
-            margin: 2rem auto;
+            background: #D2691E;
+            margin: 20px auto;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
+            font-size: 18px;
         }
         
-        .texto-artistico {
-            font-size: 1.5rem;
-            font-weight: bold;
-            padding: 1rem;
-            text-align: center;
-            margin: 2rem 0;
-            background-color: #FFF8DC;
+        .texto-dinamico {
+            padding: 20px;
+            background: #DEB887;
             border-radius: 8px;
-            transition: all 1s;
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .controles {
-                flex-direction: column;
-                align-items: center;
-            }
+            margin: 20px auto;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            max-width: 600px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Historia del Arte</h1>
-        <p>Exploración multimedia</p>
+        <h1>Historia del Arte - Proyecto Multimedia</h1>
+        <p>Implementación de audio, video y animaciones</p>
     </header>
     
-    <nav>
-        <ul>
-            <li><a href="#" data-seccion="multimedia" class="activo">Multimedia</a></li>
-            <li><a href="#" data-seccion="animaciones">Animaciones</a></li>
-            <li><a href="#" data-seccion="interactivo">Interactivo</a></li>
-        </ul>
-    </nav>
-    
     <main>
-        <section id="multimedia" class="seccion activo">
-            <h2>Elementos Multimedia</h2>
+        <section class="seccion">
+            <h2>🎵 Control de Audio y Video</h2>
             
-            <div class="contenedor">
-                <h3>Música Clásica para Arte</h3>
-                <p>Pieza de piano clásico para ambientación artística</p>
+            <div class="multimedia-box">
+                <h3>Audio: Música Clásica</h3>
+                <p>Piano clásico para ambiente artístico</p>
                 
-                <audio id="musicaArte">
+                <div style="background: #FFF8DC; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <p><strong>Audio disponible:</strong> Piano clásico</p>
+                    <p><em>Haz clic en "Reproducir" para escuchar</em></p>
+                </div>
+                
+                <audio id="audioPlayer">
                     <source src="https://assets.mixkit.co/music/preview/mixkit-classical-piano-118.mp3" type="audio/mpeg">
                 </audio>
                 
                 <div class="controles">
-                    <button class="boton-interactivo" onclick="iniciarMusica()">▶️ Reproducir</button>
-                    <button class="boton-interactivo" onclick="pausarMusica()">⏸️ Pausar</button>
-                    <button class="boton-interactivo" onclick="reiniciarMusica()">⏹️ Reiniciar</button>
+                    <button onclick="playAudio()">▶️ Reproducir Audio</button>
+                    <button onclick="pauseAudio()">⏸️ Pausar Audio</button>
+                    <button onclick="stopAudio()">⏹️ Detener Audio</button>
                 </div>
             </div>
             
-            <div class="contenedor">
-                <h3>Video Artístico</h3>
+            <div class="multimedia-box">
+                <h3>Video: Proceso Artístico</h3>
                 <p>Técnicas de pintura en video</p>
                 
-                <video id="videoArte" controls>
+                <video id="videoPlayer" controls style="background: black;">
                     <source src="https://assets.mixkit.co/videos/preview/mixkit-artist-painting-a-canvas-2292-large.mp4" type="video/mp4">
                 </video>
                 
                 <div class="controles">
-                    <button class="boton-interactivo" onclick="iniciarVideo()">▶️ Reproducir Video</button>
-                    <button class="boton-interactivo" onclick="pausarVideo()">⏸️ Pausar Video</button>
+                    <button onclick="playVideo()">▶️ Reproducir Video</button>
+                    <button onclick="pauseVideo()">⏸️ Pausar Video</button>
                 </div>
             </div>
         </section>
         
-        <section id="animaciones" class="seccion">
-            <h2>Animaciones Visuales</h2>
+        <section class="seccion">
+            <h2>🎭 Animaciones CSS</h2>
             
-            <div class="contenedor">
-                <h3>Animación con Keyframes</h3>
-                <p>Efecto visual con CSS</p>
+            <div class="multimedia-box">
+                <h3>Animación Keyframes</h3>
+                <p>Caja con animación automática</p>
                 
-                <div class="caja-animada" id="animacionCaja">
-                    Efecto Visual
+                <div class="animacion-box" id="boxAnimada">
+                    Animación Activa
                 </div>
                 
-                <button class="boton-interactivo" onclick="alternarAnimacion()">Alternar Animación</button>
+                <div class="controles">
+                    <button onclick="iniciarAnimacion()">Iniciar Animación</button>
+                    <button onclick="detenerAnimacion()">Detener Animación</button>
+                </div>
             </div>
             
-            <div class="contenedor">
+            <div class="multimedia-box">
                 <h3>Transiciones CSS</h3>
-                <p>Efectos al interactuar</p>
+                <p>Efectos al pasar el ratón</p>
                 
                 <div class="controles">
-                    <button class="boton-interactivo">Efecto 1</button>
-                    <button class="boton-interactivo">Efecto 2</button>
-                    <button class="boton-interactivo">Efecto 3</button>
+                    <button style="transition: all 0.3s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">Efecto 1</button>
+                    <button style="transition: all 0.3s;" onmouseover="this.style.backgroundColor='#CD853F'" onmouseout="this.style.backgroundColor='#8B4513'">Efecto 2</button>
+                    <button style="transition: all 0.3s;" onmouseover="this.style.borderRadius='20px'" onmouseout="this.style.borderRadius='5px'">Efecto 3</button>
                 </div>
             </div>
         </section>
         
-        <section id="interactivo" class="seccion">
-            <h2>Interactividad</h2>
+        <section class="seccion">
+            <h2>🌈 Efectos con JavaScript</h2>
             
-            <div class="contenedor">
-                <h3>Modificación Visual</h3>
-                <p>Cambio dinámico de estilos</p>
+            <div class="multimedia-box">
+                <h3>Cambio Dinámico de Estilos</h3>
+                <p>Texto que modifica su apariencia</p>
                 
-                <div class="texto-artistico" id="textoModificable">
-                    La belleza del arte
+                <div class="texto-dinamico" id="textoEfecto">
+                    El arte transforma la percepción
                 </div>
                 
                 <div class="controles">
-                    <button class="boton-interactivo" onclick="cambiarEstilo()">Cambiar Estilo</button>
-                    <button class="boton-interactivo" onclick="restaurarEstilo()">Restaurar</button>
+                    <button onclick="cambiarTexto()">Cambiar Color</button>
+                    <button onclick="animarTexto()">Animar Texto</button>
+                    <button onclick="resetTexto()">Reiniciar</button>
                 </div>
             </div>
             
-            <div class="contenedor">
-                <h3>Efecto Programado</h3>
-                <p>Cambio automático después de tiempo</p>
+            <div class="multimedia-box">
+                <h3>Efecto con setTimeout</h3>
+                <p>Cambio programado después de tiempo</p>
                 
-                <div id="efectoAutomatico" style="padding: 1.5rem; background: #D2691E; color: white; border-radius: 8px; margin: 1rem auto; width: 80%; text-align: center;">
-                    Espera 3 segundos...
+                <div id="efectoTiempo" style="padding: 20px; background: #8B4513; color: white; border-radius: 8px; text-align: center; margin: 15px auto; max-width: 500px;">
+                    Espera 2 segundos...
                 </div>
             </div>
         </section>
     </main>
     
-    <footer style="background: #8B4513; color: white; text-align: center; padding: 1.5rem; margin-top: 2rem;">
-        <p>Proyecto de Historia del Arte</p>
+    <footer style="background: #8B4513; color: white; text-align: center; padding: 1.5rem; border-radius: 10px; margin-top: 20px;">
+        <p>Proyecto de Historia del Arte - Multimedia Interactiva</p>
     </footer>
 
     <script>
-        const musica = document.getElementById('musicaArte');
-        const video = document.getElementById('videoArte');
+        // Audio
+        const audio = document.getElementById('audioPlayer');
         
-        function iniciarMusica() {
-            musica.play();
+        function playAudio() {
+            audio.play();
+            alert('🎵 Audio reproduciéndose');
         }
         
-        function pausarMusica() {
-            musica.pause();
+        function pauseAudio() {
+            audio.pause();
+            alert('⏸️ Audio pausado');
         }
         
-        function reiniciarMusica() {
-            musica.pause();
-            musica.currentTime = 0;
+        function stopAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+            alert('⏹️ Audio detenido');
         }
         
-        function iniciarVideo() {
+        // Video
+        const video = document.getElementById('videoPlayer');
+        
+        function playVideo() {
             video.play();
+            alert('🎥 Video reproduciéndose');
         }
         
-        function pausarVideo() {
+        function pauseVideo() {
             video.pause();
+            alert('⏸️ Video pausado');
         }
         
-        function cambiarEstilo() {
-            const texto = document.getElementById('textoModificable');
-            const coloresFondo = ['#8B4513', '#A0522D', '#D2691E', '#CD853F'];
-            const coloresTexto = ['#FFF8DC', '#FFE4C4', '#DEB887', '#F5DEB3'];
-            
-            const fondo = coloresFondo[Math.floor(Math.random() * coloresFondo.length)];
-            const textoColor = coloresTexto[Math.floor(Math.random() * coloresTexto.length)];
-            
-            texto.style.backgroundColor = fondo;
-            texto.style.color = textoColor;
-            texto.style.transform = 'scale(' + (0.9 + Math.random() * 0.3) + ')';
-            texto.style.borderRadius = (10 + Math.random() * 20) + 'px';
+        // Animación
+        const boxAnimada = document.getElementById('boxAnimada');
+        let animacionActiva = false;
+        
+        function iniciarAnimacion() {
+            animacionActiva = true;
+            boxAnimada.style.animation = 'pulse 1s infinite';
+            boxAnimada.innerHTML = 'Animando...';
+            alert('🎭 Animación iniciada');
         }
         
-        function restaurarEstilo() {
-            const texto = document.getElementById('textoModificable');
-            texto.style.backgroundColor = '#FFF8DC';
-            texto.style.color = '#333';
-            texto.style.transform = 'scale(1)';
-            texto.style.borderRadius = '8px';
+        function detenerAnimacion() {
+            animacionActiva = false;
+            boxAnimada.style.animation = 'none';
+            boxAnimada.innerHTML = 'Animación Detenida';
+            alert('⏹️ Animación detenida');
         }
         
-        function alternarAnimacion() {
-            const caja = document.getElementById('animacionCaja');
-            caja.style.transform = caja.style.transform === 'rotate(10deg)' ? 'rotate(-10deg)' : 'rotate(10deg)';
-            caja.style.transition = 'transform 0.5s';
+        // Efectos de texto
+        const textoEfecto = document.getElementById('textoEfecto');
+        
+        function cambiarTexto() {
+            const colores = ['#8B4513', '#A0522D', '#D2691E', '#CD853F', '#DEB887'];
+            const color = colores[Math.floor(Math.random() * colores.length)];
+            textoEfecto.style.backgroundColor = color;
+            textoEfecto.style.color = color === '#DEB887' ? '#333' : 'white';
+            textoEfecto.style.transform = 'rotate(' + (Math.random() * 10 - 5) + 'deg)';
+            textoEfecto.style.transition = 'all 0.5s';
         }
         
+        function animarTexto() {
+            textoEfecto.style.fontSize = '24px';
+            textoEfecto.style.fontWeight = 'bold';
+            textoEfecto.style.letterSpacing = '2px';
+            textoEfecto.style.transition = 'all 0.5s';
+        }
+        
+        function resetTexto() {
+            textoEfecto.style.backgroundColor = '#DEB887';
+            textoEfecto.style.color = '#333';
+            textoEfecto.style.transform = 'none';
+            textoEfecto.style.fontSize = '18px';
+            textoEfecto.style.fontWeight = 'normal';
+            textoEfecto.style.letterSpacing = 'normal';
+        }
+        
+        // Efecto con setTimeout
         setTimeout(function() {
-            const efecto = document.getElementById('efectoAutomatico');
-            efecto.innerHTML = '¡Efecto completado!';
-            efecto.style.backgroundColor = '#CD853F';
-            efecto.style.transform = 'scale(1.1)';
+            const efecto = document.getElementById('efectoTiempo');
+            efecto.innerHTML = '✅ ¡Efecto completado después de 2 segundos!';
+            efecto.style.backgroundColor = '#D2691E';
+            efecto.style.transform = 'scale(1.05)';
             efecto.style.transition = 'all 0.5s';
-        }, 3000);
-        
-        const enlacesNav = document.querySelectorAll('nav a');
-        const secciones = document.querySelectorAll('.seccion');
-        
-        enlacesNav.forEach(enlace => {
-            enlace.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                enlacesNav.forEach(e => e.classList.remove('activo'));
-                this.classList.add('activo');
-                
-                const objetivo = this.getAttribute('data-seccion');
-                secciones.forEach(seccion => {
-                    seccion.classList.remove('activo');
-                });
-                
-                document.getElementById(objetivo).classList.add('activo');
-            });
-        });
-        
-        setInterval(function() {
-            const caja = document.getElementById('animacionCaja');
-            if (!caja.style.transform || caja.style.transform === 'none') {
-                caja.style.transform = 'rotate(5deg)';
-                caja.style.transition = 'transform 0.5s';
-            }
         }, 2000);
+        
+        // Animación CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); opacity: 1; }
+                50% { transform: scale(1.1); opacity: 0.8; }
+                100% { transform: scale(1); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Iniciar animación automáticamente después de 1 segundo
+        setTimeout(iniciarAnimacion, 1000);
     </script>
 </body>
 </html>
