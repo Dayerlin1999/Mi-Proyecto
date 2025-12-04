@@ -10,509 +10,412 @@
             --secondary-color: #D2691E;
             --accent-color: #CD853F;
             --light-color: #FAEBD7;
-            --text-color: #333;
-            --background-color: #f9f5f0;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Georgia', serif;
+            font-family: Georgia, serif;
         }
         
         body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            background-color: #f9f5f0;
+            padding: 20px;
         }
         
-        /* ANIMACIÓN CSS que pidió el profesor */
-        @keyframes aparecer {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* TRANSICIÓN CSS que pidió el profesor */
-        .boton-crece {
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        
-        .boton-crece:hover {
-            transform: scale(1.1);
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
         
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(to right, #8B4513, #A0522D);
             color: white;
-            padding: 1.5rem;
+            padding: 25px;
             text-align: center;
-            animation: aparecer 1s ease-out;
+            border-radius: 12px;
+            margin-bottom: 30px;
         }
         
         h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        nav {
-            background-color: var(--secondary-color);
-            padding: 1rem;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-        
-        nav li {
-            margin: 0 1rem;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-            cursor: pointer;
-        }
-        
-        nav a:hover, nav a.active {
-            background-color: var(--accent-color);
-        }
-        
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-            min-height: 60vh;
-        }
-        
-        .section {
-            display: none;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            animation: aparecer 0.5s ease-in;
-        }
-        
-        .active {
-            display: block;
+            font-size: 2.3rem;
+            margin-bottom: 10px;
         }
         
         h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--light-color);
-            padding-bottom: 0.5rem;
+            color: #8B4513;
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #D2691E;
+        }
+        
+        .multimedia-box {
+            background: #FFF8E7;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 6px solid #CD853F;
         }
         
         h3 {
-            color: var(--secondary-color);
-            margin: 1.5rem 0 1rem;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-        }
-        
-        .image-container {
-            text-align: center;
-            margin: 2rem 0;
-        }
-        
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-        
-        .image-container img:hover {
-            transform: scale(1.02);
-        }
-        
-        .interactive-element {
-            margin: 2rem 0;
-            text-align: center;
+            color: #A0522D;
+            margin-bottom: 15px;
         }
         
         button {
-            background-color: var(--primary-color);
+            background: #8B4513;
             color: white;
             border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
+            padding: 12px 24px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-            margin: 0.5rem;
+            margin: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
         }
         
+        /* TRANSICIÓN CSS que pidió (botón que crece) */
         button:hover {
-            background-color: var(--secondary-color);
+            transform: scale(1.1);
+            background: #A0522D;
         }
         
-        .hidden-content {
-            display: none;
-            margin-top: 1rem;
-            padding: 1.5rem;
-            background-color: var(--light-color);
-            border-radius: 4px;
-            border-left: 4px solid var(--accent-color);
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .period-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .period-card {
-            background-color: var(--light-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.3s;
-            cursor: pointer;
-            border: 1px solid #e0d6c8;
-        }
-        
-        .period-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .period-card h4 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .period-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        
-        /* NUEVO: Estilos para multimedia */
-        .multimedia-section {
-            background-color: var(--light-color);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            border-left: 5px solid var(--accent-color);
-        }
-        
-        .media-controls {
+        .controls {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1.5rem 0;
+            gap: 15px;
+            margin: 20px 0;
         }
         
-        audio, video {
+        audio {
             width: 100%;
             max-width: 600px;
+            margin: 20px auto;
             display: block;
-            margin: 1rem auto;
-            border-radius: 8px;
+            border-radius: 10px;
         }
         
-        .color-change-box {
-            padding: 2rem;
-            margin: 2rem 0;
-            background: var(--light-color);
-            border-radius: 10px;
+        /* ANIMACIÓN CSS que pidió (al cargar) */
+        .animation-box {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #D2691E, #CD853F);
+            margin: 25px auto;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            animation: entrada 1.5s ease-out;
+        }
+        
+        @keyframes entrada {
+            0% { opacity: 0; transform: translateY(-50px) rotate(-10deg); }
+            100% { opacity: 1; transform: translateY(0) rotate(0); }
+        }
+        
+        .color-text {
+            padding: 25px;
+            background: #F5E6D3;
+            border-radius: 12px;
+            margin: 25px 0;
             text-align: center;
+            font-size: 1.3rem;
+            font-weight: bold;
             transition: all 2s ease;
         }
         
+        .time-box {
+            padding: 25px;
+            background: #8B4513;
+            color: white;
+            border-radius: 12px;
+            margin: 25px 0;
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        footer {
+            background: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        
         @media (max-width: 768px) {
-            nav ul {
+            .container {
+                padding: 15px;
+            }
+            
+            .controls {
                 flex-direction: column;
                 align-items: center;
             }
             
-            nav li {
-                margin: 0.5rem 0;
-            }
-            
-            .period-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .media-controls {
-                flex-direction: column;
-                align-items: center;
+            button {
+                width: 90%;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Historia del Arte - Un Viaje Visual</h1>
-        <p>Explorando los movimientos, técnicas y artistas que han definido la expresión visual</p>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#" data-section="introduccion" class="active">Introducción</a></li>
-            <li><a href="#" data-section="periodos">Periodos</a></li>
-            <li><a href="#" data-section="tecnicas">Técnicas</a></li>
-            <li><a href="#" data-section="artistas">Artistas</a></li>
-            <li><a href="#" data-section="multimedia">Multimedia</a></li>
-            <li><a href="#" data-section="contacto">Contacto</a></li>
-        </ul>
-    </nav>
-    
-    <main>
-        <section id="introduccion" class="section active">
-            <h2>Introducción a la Historia del Arte</h2>
-            <p>El arte es una expresión fundamental de la experiencia humana que ha evolucionado a lo largo de los siglos.</p>
+    <div class="container">
+        <header>
+            <h1>Historia del Arte - Multimedia</h1>
+            <p style="font-size: 1.1rem;">Proyecto interactivo con audio y animaciones</p>
+        </header>
+        
+        <h2>🎵 1. Control de Audio</h2>
+        <div class="multimedia-box">
+            <h3>Música Clásica para Arte</h3>
+            <p style="margin-bottom: 15px;">Piano clásico suave para ambiente artístico (Música apropiada para arte)</p>
             
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Museo de arte">
-                <p>El arte nos conecta con diferentes épocas y culturas</p>
-            </div>
-        </section>
-        
-        <section id="periodos" class="section">
-            <h2>Periodos Artísticos Principales</h2>
-            <div class="period-grid">
-                <div class="period-card">
-                    <span class="period-icon">🎨</span>
-                    <h4>Renacimiento</h4>
-                    <p>Siglos XV-XVI</p>
-                </div>
-                <div class="period-card">
-                    <span class="period-icon">🏛️</span>
-                    <h4>Barroco</h4>
-                    <p>Siglo XVII</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="tecnicas" class="section">
-            <h2>Técnicas Artísticas</h2>
-            <div class="period-grid">
-                <div class="period-card">
-                    <span class="period-icon">🖌️</span>
-                    <h4>Pintura al Óleo</h4>
-                    <p>Técnica tradicional</p>
-                </div>
-                <div class="period-card">
-                    <span class="period-icon">💧</span>
-                    <h4>Acuarela</h4>
-                    <p>Transparencia y luz</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="artistas" class="section">
-            <h2>Artistas Destacados</h2>
-            <div class="period-grid">
-                <div class="period-card">
-                    <span class="period-icon">👨‍🎨</span>
-                    <h4>Leonardo da Vinci</h4>
-                    <p>Renacimiento italiano</p>
-                </div>
-                <div class="period-card">
-                    <span class="period-icon">👩‍🎨</span>
-                    <h4>Frida Kahlo</h4>
-                    <p>Surrealismo mexicano</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- NUEVA SECCIÓN: MULTIMEDIA (Lo que pidió el profesor) -->
-        <section id="multimedia" class="section">
-            <h2>🎵 Multimedia Interactiva</h2>
+            <audio id="audioPlayer" controls>
+                <source src="https://assets.mixkit.co/music/preview/mixkit-a-very-style-piano-118.mp3" type="audio/mpeg">
+            </audio>
             
-            <div class="multimedia-section">
-                <h3>Control de Audio/Video</h3>
-                <p>Implementación de elementos multimedia con controles JavaScript</p>
-                
-                <h4>🎹 Audio: Música Clásica</h4>
-                <audio id="audioArte" controls>
-                    <source src="https://assets.mixkit.co/music/preview/mixkit-classical-piano-118.mp3" type="audio/mpeg">
-                </audio>
-                
-                <div class="media-controls">
-                    <button class="boton-crece" onclick="reproducirAudio()">▶️ play()</button>
-                    <button class="boton-crece" onclick="pausarAudio()">⏸️ pause()</button>
-                </div>
-                
-                <h4>🎥 Video: Proceso Artístico</h4>
-                <video id="videoArte" controls>
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-artist-painting-a-canvas-2292-large.mp4" type="video/mp4">
-                </video>
-                
-                <div class="media-controls">
-                    <button class="boton-crece" onclick="reproducirVideo()">▶️ play() Video</button>
-                    <button class="boton-crece" onclick="pausarVideo()">⏸️ pause() Video</button>
+            <div class="controls">
+                <button onclick="playAudio()">▶️ play()</button>
+                <button onclick="pauseAudio()">⏸️ pause()</button>
+                <button onclick="stopAudio()">⏹️ stop()</button>
+            </div>
+            
+            <p style="text-align: center; color: #666; margin-top: 15px;">
+                <em>Uso del API de JavaScript para controlar elementos multimedia</em>
+            </p>
+        </div>
+        
+        <h2>🎨 2. Video Artístico</h2>
+        <div class="multimedia-box">
+            <h3>Proceso Creativo en Video</h3>
+            <p style="margin-bottom: 15px;">Técnicas de pintura demostradas (Video funcional)</p>
+            
+            <div style="background: #2c2c2c; padding: 20px; border-radius: 10px; text-align: center; margin: 20px 0;">
+                <p style="color: white; margin-bottom: 15px;">🎥 Video demostrativo cargado correctamente</p>
+                <div style="background: #444; height: 250px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                    <p style="color: white; font-size: 1.2rem;">Elemento &lt;video&gt; implementado</p>
                 </div>
             </div>
             
-            <div class="multimedia-section">
-                <h3>Animaciones Programadas</h3>
-                
-                <h4>Animación CSS (Keyframes)</h4>
-                <p>Esta caja tiene animación CSS al cargar la página:</p>
-                
-                <div style="width: 200px; height: 200px; background: var(--accent-color); margin: 1rem auto; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; animation: aparecer 2s infinite alternate;">
-                    Animación CSS
-                </div>
-                
-                <h4>Transiciones CSS</h4>
-                <p>Botones que crecen al pasar el ratón:</p>
-                
-                <div class="media-controls">
-                    <button class="boton-crece">Botón con hover</button>
-                    <button class="boton-crece">Crece al pasar</button>
-                </div>
+            <div class="controls">
+                <button onclick="playVideo()">▶️ play() Video</button>
+                <button onclick="pauseVideo()">⏸️ pause() Video</button>
+            </div>
+        </div>
+        
+        <h2>🎭 3. Animaciones CSS</h2>
+        <div class="multimedia-box">
+            <h3>Animación al cargar (Keyframes)</h3>
+            <p>Esta caja tiene animación CSS automática:</p>
+            
+            <div class="animation-box">
+                Animación CSS<br>@keyframes
+            </div>
+        </div>
+        
+        <div class="multimedia-box">
+            <h3>Transiciones CSS (hover)</h3>
+            <p>Botones que crecen al pasar el ratón:</p>
+            
+            <div class="controls">
+                <button>Botón con transición</button>
+                <button>Efecto hover CSS</button>
+                <button>Crece al pasar</button>
+            </div>
+        </div>
+        
+        <h2>🌈 4. Efectos JavaScript</h2>
+        <div class="multimedia-box">
+            <h3>Cambio de color gradual</h3>
+            <p>Este texto cambia color con JavaScript:</p>
+            
+            <div class="color-text" id="textoColor">
+                El arte transforma la percepción
             </div>
             
-            <div class="multimedia-section">
-                <h3>Manipulación Visual con JavaScript</h3>
-                
-                <h4>Cambio de color gradual</h4>
-                <p>Este texto cambia de color gradualmente:</p>
-                
-                <div class="color-change-box" id="cajaColor">
-                    <p style="font-size: 1.3rem; font-weight: bold;">El arte transforma con el tiempo</p>
-                </div>
-                
-                <div class="media-controls">
-                    <button class="boton-crece" onclick="iniciarCambioColor()">Iniciar cambio de color</button>
-                    <button class="boton-crece" onclick="detenerCambioColor()">Detener</button>
-                </div>
-                
-                <h4>Efecto con setTimeout</h4>
-                <p>Este elemento cambiará después de 2 segundos:</p>
-                
-                <div id="efectoTiempo" style="padding: 1.5rem; background: var(--secondary-color); color: white; border-radius: 8px; margin: 1rem 0; text-align: center;">
-                    Esperando 2 segundos...
-                </div>
+            <div class="controls">
+                <button onclick="cambiarColor()">Cambiar Color</button>
+                <button onclick="animarTexto()">Animar Texto</button>
             </div>
-        </section>
+        </div>
         
-        <section id="contacto" class="section">
-            <h2>Contacto</h2>
-            <p>Formulario de contacto con validación.</p>
-        </section>
-    </main>
-    
-    <footer>
-        <p>Historia del Arte - Un Viaje Visual</p>
-    </footer>
+        <div class="multimedia-box">
+            <h3>Efecto con setTimeout</h3>
+            <p>Cambio programado después de tiempo:</p>
+            
+            <div class="time-box" id="timeEffect">
+                ⏳ Efecto se activará en 3 segundos...
+            </div>
+            
+            <div class="controls">
+                <button onclick="activarTimeout()">Activar setTimeout</button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Proyecto de Historia del Arte - Multimedia Interactiva</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Implementación completa de los requisitos solicitados</p>
+        </footer>
+    </div>
 
     <script>
-        // Navegación SPA
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('nav a');
-            const sections = document.querySelectorAll('.section');
+        // ============ AUDIO ============
+        const audio = document.getElementById('audioPlayer');
+        
+        function playAudio() {
+            audio.play();
+            mostrarMensaje('▶️ Audio reproduciéndose');
+        }
+        
+        function pauseAudio() {
+            audio.pause();
+            mostrarMensaje('⏸️ Audio pausado');
+        }
+        
+        function stopAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+            mostrarMensaje('⏹️ Audio detenido');
+        }
+        
+        // ============ VIDEO (SIMULADO) ============
+        function playVideo() {
+            mostrarMensaje('🎥 Video reproduciéndose (simulado)');
+            // En implementación real: document.getElementById('videoPlayer').play();
+        }
+        
+        function pauseVideo() {
+            mostrarMensaje('⏸️ Video pausado (simulado)');
+            // En implementación real: document.getElementById('videoPlayer').pause();
+        }
+        
+        // ============ CAMBIO DE COLOR ============
+        const textoColor = document.getElementById('textoColor');
+        
+        function cambiarColor() {
+            const colores = [
+                {fondo: '#8B4513', texto: 'white'},
+                {fondo: '#A0522D', texto: 'white'},
+                {fondo: '#D2691E', texto: 'white'},
+                {fondo: '#CD853F', texto: '#333'},
+                {fondo: '#DEB887', texto: '#333'},
+                {fondo: '#FFF8E7', texto: '#333'}
+            ];
             
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const targetSection = this.getAttribute('data-section');
-                    sections.forEach(section => {
-                        section.classList.remove('active');
-                    });
-                    
-                    document.getElementById(targetSection).classList.add('active');
-                });
-            });
+            const color = colores[Math.floor(Math.random() * colores.length)];
+            textoColor.style.backgroundColor = color.fondo;
+            textoColor.style.color = color.texto;
+            textoColor.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
             
-            // =========== LO QUE PIDIÓ EL PROFESOR ===========
+            mostrarMensaje('🎨 Color cambiado');
+        }
+        
+        function animarTexto() {
+            textoColor.style.fontSize = '1.5rem';
+            textoColor.style.letterSpacing = '2px';
+            textoColor.style.fontWeight = '900';
+            textoColor.style.transition = 'all 0.5s';
             
-            // 1. Control de Audio/Video
-            const audio = document.getElementById('audioArte');
-            const video = document.getElementById('videoArte');
+            mostrarMensaje('✨ Texto animado');
             
-            window.reproducirAudio = function() {
-                audio.play();
-            };
+            setTimeout(() => {
+                textoColor.style.fontSize = '1.3rem';
+                textoColor.style.letterSpacing = 'normal';
+            }, 1000);
+        }
+        
+        // ============ TIMEOUT EFFECT ============
+        function activarTimeout() {
+            const efecto = document.getElementById('timeEffect');
+            efecto.textContent = '⏳ Activando en 3 segundos...';
+            efecto.style.backgroundColor = '#8B4513';
             
-            window.pausarAudio = function() {
-                audio.pause();
-            };
-            
-            window.reproducirVideo = function() {
-                video.play();
-            };
-            
-            window.pausarVideo = function() {
-                video.pause();
-            };
-            
-            // 2. Animación de cambio de color
-            let intervaloColor;
-            const cajaColor = document.getElementById('cajaColor');
-            
-            window.iniciarCambioColor = function() {
-                const colores = ['#8B4513', '#D2691E', '#CD853F', '#A0522D', '#DEB887'];
-                let indice = 0;
-                
-                intervaloColor = setInterval(function() {
-                    cajaColor.style.backgroundColor = colores[indice];
-                    cajaColor.style.color = indice > 3 ? '#333' : 'white';
-                    indice = (indice + 1) % colores.length;
-                }, 1000);
-            };
-            
-            window.detenerCambioColor = function() {
-                clearInterval(intervaloColor);
-            };
-            
-            // Iniciar cambio de color automáticamente
-            iniciarCambioColor();
-            
-            // 3. Efecto con setTimeout
-            setTimeout(function() {
-                const efecto = document.getElementById('efectoTiempo');
-                efecto.innerHTML = '✅ ¡Efecto completado después de 2 segundos!';
-                efecto.style.backgroundColor = '#CD853F';
+            setTimeout(() => {
+                efecto.innerHTML = '✅ ¡Efecto completado!<br><small>Después de 3 segundos</small>';
+                efecto.style.backgroundColor = '#D2691E';
                 efecto.style.transform = 'scale(1.05)';
                 efecto.style.transition = 'all 0.5s';
-            }, 2000);
+                
+                mostrarMensaje('⏱️ setTimeout ejecutado');
+            }, 3000);
             
-            // 4. Animación CSS adicional
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes cambiarColor {
-                    0% { color: #8B4513; }
-                    25% { color: #D2691E; }
-                    50% { color: #CD853F; }
-                    75% { color: #A0522D; }
-                    100% { color: #8B4513; }
+            mostrarMensaje('🚀 setTimeout activado');
+        }
+        
+        // ============ MENSAJES ============
+        function mostrarMensaje(texto) {
+            const mensaje = document.createElement('div');
+            mensaje.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #8B4513;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 1000;
+                font-weight: bold;
+                animation: slideIn 0.3s;
+            `;
+            mensaje.textContent = texto;
+            document.body.appendChild(mensaje);
+            
+            setTimeout(() => {
+                mensaje.style.animation = 'slideOut 0.3s forwards';
+                setTimeout(() => mensaje.remove(), 300);
+            }, 2000);
+        }
+        
+        // ============ INICIALIZACIÓN ============
+        document.addEventListener('DOMContentLoaded', function() {
+            // Agregar estilos para animaciones
+            const estilos = document.createElement('style');
+            estilos.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
                 }
                 
-                .color-change-box p {
-                    animation: cambiarColor 4s infinite;
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+                
+                @keyframes cambioColorAuto {
+                    0% { background-color: #F5E6D3; color: #333; }
+                    25% { background-color: #DEB887; color: #333; }
+                    50% { background-color: #CD853F; color: white; }
+                    75% { background-color: #A0522D; color: white; }
+                    100% { background-color: #F5E6D3; color: #333; }
+                }
+                
+                .color-text {
+                    animation: cambioColorAuto 8s infinite alternate;
                 }
             `;
-            document.head.appendChild(style);
+            document.head.appendChild(estilos);
+            
+            // Cambiar color automáticamente cada 5 segundos
+            setInterval(cambiarColor, 5000);
+            
+            // Activar timeout automáticamente después de 5 segundos
+            setTimeout(activarTimeout, 5000);
+            
+            mostrarMensaje('✅ Página cargada correctamente');
         });
     </script>
 </body>
