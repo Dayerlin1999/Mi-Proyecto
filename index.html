@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia del Arte - Un Viaje Visual</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Historia del Arte - Un Viaje Visual</h1>
+        <p>Explorando los movimientos, técnicas y artistas</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#" data-section="introduccion" class="active">Introducción</a></li>
+            <li><a href="#" data-section="multimedia">Multimedia</a></li>
+            <li><a href="#" data-section="periodos">Periodos</a></li>
+            <li><a href="#" data-section="artistas">Artistas</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="introduccion" class="section active">
+            <h2>Introducción al Arte</h2>
+            <p>El arte es una expresión fundamental de la experiencia humana.</p>
+            
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Museo de arte">
+                <p>El arte conecta épocas y culturas</p>
+            </div>
+            
+            <div class="scroll-animation" id="scrollAnimation">
+                <h3>🎭 Arte y Emoción</h3>
+                <p class="color-changing-text" id="colorText">El arte transmite emociones a través del tiempo</p>
+                <p>Desplázate para ver efectos visuales</p>
+            </div>
+        </section>
+        
+        <section id="multimedia" class="section">
+            <h2>🎵 Multimedia Interactiva</h2>
+            
+            <div class="media-container">
+                <h3>🎶 Audio: Música para Inspiración</h3>
+                <p>Controla la reproducción del audio:</p>
+                
+                <audio id="arteAudio" controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Tu navegador no soporta audio.
+                </audio>
+                
+                <div class="media-controls">
+                    <button id="playBtn">▶️ Reproducir</button>
+                    <button id="pauseBtn">⏸️ Pausar</button>
+                    <button id="stopBtn">⏹️ Detener</button>
+                    <button id="volUpBtn">🔊 Subir Volumen</button>
+                    <button id="volDownBtn">🔉 Bajar Volumen</button>
+                </div>
+            </div>
+            
+            <div class="media-container">
+                <h3>🎨 Video: Proceso Creativo</h3>
+                <p>Observa el proceso artístico:</p>
+                
+                <video id="arteVideo" controls poster="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-1.2.1&auto=format&fit=crop&w-600&q=80" width="100%">
+                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                    Tu navegador no soporta video.
+                </video>
+                
+                <div class="media-controls">
+                    <button id="playVideoBtn">▶️ Reproducir Video</button>
+                    <button id="pauseVideoBtn">⏸️ Pausar Video</button>
+                </div>
+            </div>
+            
+            <div class="media-container">
+                <h3>🖌️ Canvas Interactivo</h3>
+                <p>Haz clic y arrastra para dibujar:</p>
+                
+                <canvas id="arteCanvas" width="500" height="300"></canvas>
+                
+                <div class="media-controls">
+                    <button id="clearCanvas">🗑️ Limpiar</button>
+                    <button id="changeColor">🎨 Cambiar Color</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="periodos" class="section">
+            <h2>Periodos Artísticos</h2>
+            <div class="period-grid">
+                <div class="period-card">
+                    <div class="period-icon">🎨</div>
+                    <h3>Renacimiento</h3>
+                    <p>Siglos XV-XVI</p>
+                </div>
+                <div class="period-card">
+                    <div class="period-icon">🏛️</div>
+                    <h3>Barroco</h3>
+                    <p>Siglo XVII</p>
+                </div>
+                <div class="period-card">
+                    <div class="period-icon">🌅</div>
+                    <h3>Impresionismo</h3>
+                    <p>Siglo XIX</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="artistas" class="section">
+            <h2>Artistas Destacados</h2>
+            <div class="period-grid">
+                <div class="period-card">
+                    <div class="period-icon">👨‍🎨</div>
+                    <h3>Leonardo da Vinci</h3>
+                    <p>Renacimiento</p>
+                </div>
+                <div class="period-card">
+                    <div class="period-icon">👩‍🎨</div>
+                    <h3>Frida Kahlo</h3>
+                    <p>Surrealismo</p>
+                </div>
+                <div class="period-card">
+                    <div class="period-icon">👨‍🎨</div>
+                    <h3>Pablo Picasso</h3>
+                    <p>Cubismo</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Historia del Arte - Un Viaje Visual</p>
+    </footer>
+
+    <script src="error-handler.js"></script>
+</body>
+</html>
