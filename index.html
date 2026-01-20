@@ -3,420 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia del Arte - Un Viaje Visual</title>
-    <style>
-        :root {
-            --primary-color: #8B4513;
-            --secondary-color: #D2691E;
-            --accent-color: #CD853F;
-            --light-color: #FAEBD7;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Georgia, serif;
-        }
-        
-        body {
-            background-color: #f9f5f0;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-        
-        header {
-            background: linear-gradient(to right, #8B4513, #A0522D);
-            color: white;
-            padding: 25px;
-            text-align: center;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-        
-        h1 {
-            font-size: 2.3rem;
-            margin-bottom: 10px;
-        }
-        
-        h2 {
-            color: #8B4513;
-            margin: 30px 0 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #D2691E;
-        }
-        
-        .multimedia-box {
-            background: #FFF8E7;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 25px 0;
-            border-left: 6px solid #CD853F;
-        }
-        
-        h3 {
-            color: #A0522D;
-            margin-bottom: 15px;
-        }
-        
-        button {
-            background: #8B4513;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin: 8px;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        /* TRANSICIÓN CSS que pidió (botón que crece) */
-        button:hover {
-            transform: scale(1.1);
-            background: #A0522D;
-        }
-        
-        .controls {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        audio {
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-            display: block;
-            border-radius: 10px;
-        }
-        
-        /* ANIMACIÓN CSS que pidió (al cargar) */
-        .animation-box {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, #D2691E, #CD853F);
-            margin: 25px auto;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-            animation: entrada 1.5s ease-out;
-        }
-        
-        @keyframes entrada {
-            0% { opacity: 0; transform: translateY(-50px) rotate(-10deg); }
-            100% { opacity: 1; transform: translateY(0) rotate(0); }
-        }
-        
-        .color-text {
-            padding: 25px;
-            background: #F5E6D3;
-            border-radius: 12px;
-            margin: 25px 0;
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: bold;
-            transition: all 2s ease;
-        }
-        
-        .time-box {
-            padding: 25px;
-            background: #8B4513;
-            color: white;
-            border-radius: 12px;
-            margin: 25px 0;
-            text-align: center;
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        footer {
-            background: #8B4513;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            border-radius: 12px;
-            margin-top: 40px;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-            
-            .controls {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            button {
-                width: 90%;
-            }
-        }
-    </style>
+    <title>Historia del Arte - Evaluación 4</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Historia del Arte - Multimedia</h1>
-            <p style="font-size: 1.1rem;">Proyecto interactivo con audio y animaciones</p>
+            <h1>Historia del Arte</h1>
+            <p>Evaluación 4 - Refactorización Modular</p>
         </header>
-        
-        <h2>🎵 1. Control de Audio</h2>
+
         <div class="multimedia-box">
-            <h3>Música Clásica para Arte</h3>
-            <p style="margin-bottom: 15px;">Piano clásico suave para ambiente artístico (Música apropiada para arte)</p>
-            
+            <h2>🎵 Control de Audio</h2>
             <audio id="audioPlayer" controls>
                 <source src="https://assets.mixkit.co/music/preview/mixkit-a-very-style-piano-118.mp3" type="audio/mpeg">
             </audio>
-            
             <div class="controls">
-                <button onclick="playAudio()">▶️ play()</button>
-                <button onclick="pauseAudio()">⏸️ pause()</button>
-                <button onclick="stopAudio()">⏹️ stop()</button>
+                <button onclick="AudioController.play()">▶️ Play</button>
+                <button onclick="AudioController.pause()">⏸️ Pause</button>
+                <button onclick="AudioController.stop()">⏹️ Stop</button>
             </div>
-            
-            <p style="text-align: center; color: #666; margin-top: 15px;">
-                <em>Uso del API de JavaScript para controlar elementos multimedia</em>
-            </p>
         </div>
-        
-        <h2>🎨 2. Video Artístico</h2>
+
         <div class="multimedia-box">
-            <h3>Proceso Creativo en Video</h3>
-            <p style="margin-bottom: 15px;">Técnicas de pintura demostradas (Video funcional)</p>
-            
-            <div style="background: #2c2c2c; padding: 20px; border-radius: 10px; text-align: center; margin: 20px 0;">
-                <p style="color: white; margin-bottom: 15px;">🎥 Video demostrativo cargado correctamente</p>
-                <div style="background: #444; height: 250px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                    <p style="color: white; font-size: 1.2rem;">Elemento &lt;video&gt; implementado</p>
-                </div>
-            </div>
-            
+            <h2>🌈 Efectos Visuales</h2>
+            <div class="color-box" id="colorBox">Texto para efectos</div>
             <div class="controls">
-                <button onclick="playVideo()">▶️ play() Video</button>
-                <button onclick="pauseVideo()">⏸️ pause() Video</button>
+                <button onclick="EffectsController.changeColor()">Cambiar Color</button>
+                <button onclick="EffectsController.activateTimeout()">Activar Timeout</button>
             </div>
         </div>
-        
-        <h2>🎭 3. Animaciones CSS</h2>
-        <div class="multimedia-box">
-            <h3>Animación al cargar (Keyframes)</h3>
-            <p>Esta caja tiene animación CSS automática:</p>
-            
-            <div class="animation-box">
-                Animación CSS<br>@keyframes
-            </div>
-        </div>
-        
-        <div class="multimedia-box">
-            <h3>Transiciones CSS (hover)</h3>
-            <p>Botones que crecen al pasar el ratón:</p>
-            
+
+        <div class="evaluation-section">
+            <h2>🔧 Evaluación 4 - try...catch</h2>
             <div class="controls">
-                <button>Botón con transición</button>
-                <button>Efecto hover CSS</button>
-                <button>Crece al pasar</button>
+                <button onclick="ErrorHandler.testTryCatch()">Probar try...catch</button>
+                <button onclick="ErrorHandler.testPromise()">Error en Promesa</button>
             </div>
+            <div class="console" id="consoleOutput">Consola...</div>
         </div>
-        
-        <h2>🌈 4. Efectos JavaScript</h2>
-        <div class="multimedia-box">
-            <h3>Cambio de color gradual</h3>
-            <p>Este texto cambia color con JavaScript:</p>
-            
-            <div class="color-text" id="textoColor">
-                El arte transforma la percepción
-            </div>
-            
-            <div class="controls">
-                <button onclick="cambiarColor()">Cambiar Color</button>
-                <button onclick="animarTexto()">Animar Texto</button>
-            </div>
-        </div>
-        
-        <div class="multimedia-box">
-            <h3>Efecto con setTimeout</h3>
-            <p>Cambio programado después de tiempo:</p>
-            
-            <div class="time-box" id="timeEffect">
-                ⏳ Efecto se activará en 3 segundos...
-            </div>
-            
-            <div class="controls">
-                <button onclick="activarTimeout()">Activar setTimeout</button>
-            </div>
-        </div>
-        
+
         <footer>
-            <p>Proyecto de Historia del Arte - Multimedia Interactiva</p>
-            <p style="margin-top: 10px; font-size: 0.9rem;">Implementación completa de los requisitos solicitados</p>
+            <p>Evaluación 4 - Manejo de Errores y Módulos</p>
         </footer>
     </div>
 
-    <script>
-        // ============ AUDIO ============
-        const audio = document.getElementById('audioPlayer');
-        
-        function playAudio() {
-            audio.play();
-            mostrarMensaje('▶️ Audio reproduciéndose');
-        }
-        
-        function pauseAudio() {
-            audio.pause();
-            mostrarMensaje('⏸️ Audio pausado');
-        }
-        
-        function stopAudio() {
-            audio.pause();
-            audio.currentTime = 0;
-            mostrarMensaje('⏹️ Audio detenido');
-        }
-        
-        // ============ VIDEO (SIMULADO) ============
-        function playVideo() {
-            mostrarMensaje('🎥 Video reproduciéndose (simulado)');
-            // En implementación real: document.getElementById('videoPlayer').play();
-        }
-        
-        function pauseVideo() {
-            mostrarMensaje('⏸️ Video pausado (simulado)');
-            // En implementación real: document.getElementById('videoPlayer').pause();
-        }
-        
-        // ============ CAMBIO DE COLOR ============
-        const textoColor = document.getElementById('textoColor');
-        
-        function cambiarColor() {
-            const colores = [
-                {fondo: '#8B4513', texto: 'white'},
-                {fondo: '#A0522D', texto: 'white'},
-                {fondo: '#D2691E', texto: 'white'},
-                {fondo: '#CD853F', texto: '#333'},
-                {fondo: '#DEB887', texto: '#333'},
-                {fondo: '#FFF8E7', texto: '#333'}
-            ];
-            
-            const color = colores[Math.floor(Math.random() * colores.length)];
-            textoColor.style.backgroundColor = color.fondo;
-            textoColor.style.color = color.texto;
-            textoColor.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
-            
-            mostrarMensaje('🎨 Color cambiado');
-        }
-        
-        function animarTexto() {
-            textoColor.style.fontSize = '1.5rem';
-            textoColor.style.letterSpacing = '2px';
-            textoColor.style.fontWeight = '900';
-            textoColor.style.transition = 'all 0.5s';
-            
-            mostrarMensaje('✨ Texto animado');
-            
-            setTimeout(() => {
-                textoColor.style.fontSize = '1.3rem';
-                textoColor.style.letterSpacing = 'normal';
-            }, 1000);
-        }
-        
-        // ============ TIMEOUT EFFECT ============
-        function activarTimeout() {
-            const efecto = document.getElementById('timeEffect');
-            efecto.textContent = '⏳ Activando en 3 segundos...';
-            efecto.style.backgroundColor = '#8B4513';
-            
-            setTimeout(() => {
-                efecto.innerHTML = '✅ ¡Efecto completado!<br><small>Después de 3 segundos</small>';
-                efecto.style.backgroundColor = '#D2691E';
-                efecto.style.transform = 'scale(1.05)';
-                efecto.style.transition = 'all 0.5s';
-                
-                mostrarMensaje('⏱️ setTimeout ejecutado');
-            }, 3000);
-            
-            mostrarMensaje('🚀 setTimeout activado');
-        }
-        
-        // ============ MENSAJES ============
-        function mostrarMensaje(texto) {
-            const mensaje = document.createElement('div');
-            mensaje.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: #8B4513;
-                color: white;
-                padding: 15px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                z-index: 1000;
-                font-weight: bold;
-                animation: slideIn 0.3s;
-            `;
-            mensaje.textContent = texto;
-            document.body.appendChild(mensaje);
-            
-            setTimeout(() => {
-                mensaje.style.animation = 'slideOut 0.3s forwards';
-                setTimeout(() => mensaje.remove(), 300);
-            }, 2000);
-        }
-        
-        // ============ INICIALIZACIÓN ============
-        document.addEventListener('DOMContentLoaded', function() {
-            // Agregar estilos para animaciones
-            const estilos = document.createElement('style');
-            estilos.textContent = `
-                @keyframes slideIn {
-                    from { transform: translateX(100%); opacity: 0; }
-                    to { transform: translateX(0); opacity: 1; }
-                }
-                
-                @keyframes slideOut {
-                    from { transform: translateX(0); opacity: 1; }
-                    to { transform: translateX(100%); opacity: 0; }
-                }
-                
-                @keyframes cambioColorAuto {
-                    0% { background-color: #F5E6D3; color: #333; }
-                    25% { background-color: #DEB887; color: #333; }
-                    50% { background-color: #CD853F; color: white; }
-                    75% { background-color: #A0522D; color: white; }
-                    100% { background-color: #F5E6D3; color: #333; }
-                }
-                
-                .color-text {
-                    animation: cambioColorAuto 8s infinite alternate;
-                }
-            `;
-            document.head.appendChild(estilos);
-            
-            // Cambiar color automáticamente cada 5 segundos
-            setInterval(cambiarColor, 5000);
-            
-            // Activar timeout automáticamente después de 5 segundos
-            setTimeout(activarTimeout, 5000);
-            
-            mostrarMensaje('✅ Página cargada correctamente');
-        });
-    </script>
+    <script src="js/audio-controller.js"></script>
+    <script src="js/effects-controller.js"></script>
+    <script src="js/error-handler.js"></script>
 </body>
 </html>
